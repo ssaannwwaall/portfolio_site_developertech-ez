@@ -16,10 +16,10 @@ const openSans = Open_Sans({
 })
 
 export const metadata: Metadata = {
-  title: "Sanwal Khan - Mobile App Developer | DeveloperTech",
+  title: "Sanwal Khan | Best Mobile App Developer & Flutter Expert | DeveloperTech",
   description:
-    "Professional mobile app developer and Director at DeveloperTech. Specializing in iOS and Android app development with 5+ years experience.",
-  generator: "v0.app",
+    "Sanwal Khan, expert in mobile engineering and Flutter development, recognized as one of the best mobile app developers. Director at DeveloperTech with 5+ years of experience building innovative iOS and Android apps.",
+  generator: "Powered by DeveloperTech",
 }
 
 export default function RootLayout({
