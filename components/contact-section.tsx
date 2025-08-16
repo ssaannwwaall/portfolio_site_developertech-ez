@@ -9,12 +9,10 @@ export function ContactSection() {
     <section id="contact" className="py-20 px-4">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Contact Sanwal Khan - Best Mobile App Developer</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Let's Work Together</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Have an idea for iOS or Android? I'm <strong>Sanwal Khan</strong>,{" "}
-            <strong>Flutter developer</strong> and <strong>expert in mobile engineering</strong> at{" "}
-            <strong>DeveloperTech</strong>. Let's connect to build your app and transform your vision into a
-            high-performing mobile experience.
+            Ready to bring your mobile app idea to life? I'd love to hear about your project and discuss how we can
+            create something amazing together.
           </p>
         </div>
 
@@ -29,9 +27,6 @@ export function ContactSection() {
                   <div>
                     <h3 className="font-semibold">Email</h3>
                     <p className="text-muted-foreground">khansanwal922@gmail.com</p>
-                    <p className="text-xs text-muted-foreground">
-                      Reach out directly for project inquiries & collaboration.
-                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -46,7 +41,6 @@ export function ContactSection() {
                   <div>
                     <h3 className="font-semibold">Phone</h3>
                     <p className="text-muted-foreground">+92 3074494175</p>
-                    <p className="text-xs text-muted-foreground">Available for calls & consultations</p>
                   </div>
                 </div>
               </CardContent>
@@ -61,9 +55,6 @@ export function ContactSection() {
                   <div>
                     <h3 className="font-semibold">WhatsApp</h3>
                     <p className="text-muted-foreground">Quick queries & support</p>
-                    <p className="text-xs text-muted-foreground">
-                      Chat with <strong>Flutter Developer Sanwal Khan</strong> instantly.
-                    </p>
                   </div>
                 </div>
               </CardContent>
