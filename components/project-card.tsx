@@ -1,6 +1,9 @@
+"use client"
+
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 interface Project {
   id: number
@@ -17,6 +20,12 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
+  const handleWhatsAppContact = () => {
+    const message = `Hi Sanwal Khan! I'm interested in learning more about your ${project.title} project. Can we discuss mobile app development services?`
+    const whatsappUrl = `https://wa.me/923074494175?text=${encodeURIComponent(message)}`
+    window.open(whatsappUrl, "_blank")
+  }
+
   return (
     <Card className="group overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
       <div className={`${project.color} p-6 relative`}>
@@ -48,11 +57,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         <div className="flex gap-2">
-          <Button size="sm" className="flex-1">
-            View Details
-          </Button>
-          <Button size="sm" variant="outline">
-            Live Demo
+          <Link href={`/project/${project.id}`} className="flex-1">
+            <Button size="sm" className="w-full">
+              View Details
+            </Button>
+          </Link>
+          <Button size="sm" variant="outline" onClick={handleWhatsAppContact}>
+            Contact
           </Button>
         </div>
       </CardContent>

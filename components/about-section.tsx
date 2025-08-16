@@ -2,14 +2,23 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
 const skills = [
-  "React Native",
   "Flutter",
+  "Google Flutter Development (Android + iOS)",
+  "Mobile App Development",
+  "Firebase Integration (Firestore, FirebaseAuth)",
+  "API Integration & Backend Handling",
+  "App Deployment (Google Play Console + Apple App Store)",
+  "GetX State Management",
+  "Background Location Tracking Apps",
+  "AI Integration in Mobile Apps",
+  "Cross-platform App Development",
+  "Google Maps APIs",
+  "React Native",
   "Swift",
   "Kotlin",
   "JavaScript",
   "TypeScript",
   "Node.js",
-  "Firebase",
   "AWS",
   "MongoDB",
   "PostgreSQL",
@@ -30,12 +39,14 @@ export function AboutSection() {
             <p className="text-lg text-muted-foreground mb-6">
               I'm a passionate mobile app developer with over 5 years of experience creating innovative solutions for
               iOS and Android platforms. My expertise spans across native and cross-platform development, with a strong
-              focus on user experience and performance optimization.
+              focus on user experience and performance optimization. I started my journey in mobile development with a
+              focus on iOS, and gradually expanded my skills to include Android and cross-platform technologies.
             </p>
             <p className="text-lg text-muted-foreground mb-6">
               I believe in writing clean, maintainable code and staying up-to-date with the latest mobile development
               trends and technologies. My goal is to transform complex ideas into simple, elegant mobile experiences
-              that users love.
+              that users love. I strive to continuously improve my skills and stay ahead of the curve in the
+              ever-evolving world of mobile development.
             </p>
 
             <div className="mb-6">

@@ -35,6 +35,9 @@ export function Header() {
           <a href="#about" className="text-sm font-medium hover:text-primary transition-colors">
             About
           </a>
+          <a href="#blog" className="text-sm font-medium hover:text-primary transition-colors">
+            Blog
+          </a>
           <a href="#testimonials" className="text-sm font-medium hover:text-primary transition-colors">
             Testimonials
           </a>
