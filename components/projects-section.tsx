@@ -3,15 +3,6 @@ import { ProjectCard } from "@/components/project-card"
 const projects = [
   {
     id: 1,
-    title: "FitTracker Pro",
-    category: "Health & Fitness",
-    description: "A comprehensive fitness tracking app with AI-powered workout recommendations and social features.",
-    image: "/fitness-app-interface.png",
-    technologies: ["React Native", "Node.js", "MongoDB"],
-    color: "bg-gradient-to-br from-green-400 to-blue-500",
-  },
-  {
-    id: 2,
     title: "TaskMaster",
     category: "Productivity",
     description: "Smart task management app with team collaboration and advanced analytics.",
@@ -20,7 +11,7 @@ const projects = [
     color: "bg-gradient-to-br from-purple-400 to-pink-500",
   },
   {
-    id: 3,
+    id: 2,
     title: "FoodieExplorer",
     category: "Food & Drink",
     description: "Discover local restaurants with AR menu scanning and social reviews.",
@@ -29,31 +20,33 @@ const projects = [
     color: "bg-gradient-to-br from-orange-400 to-red-500",
   },
   {
-    id: 4,
-    title: "CryptoWallet",
-    category: "Finance",
-    description: "Secure cryptocurrency wallet with portfolio tracking and trading features.",
-    image: "/placeholder-qd5fn.png",
-    technologies: ["Kotlin", "Blockchain API", "SQLite"],
-    color: "bg-gradient-to-br from-yellow-400 to-orange-500",
-  },
-  {
-    id: 5,
-    title: "MindfulMoments",
-    category: "Health & Wellness",
-    description: "Meditation and mindfulness app with guided sessions and progress tracking.",
-    image: "/meditation-app-interface.png",
-    technologies: ["React Native", "Redux", "AWS"],
-    color: "bg-gradient-to-br from-teal-400 to-green-500",
-  },
-  {
-    id: 6,
+    id: 3,
     title: "ShopSmart",
     category: "E-commerce",
     description: "AI-powered shopping assistant with price comparison and deal alerts.",
     image: "/shopping-app-interface.png",
     technologies: ["Flutter", "TensorFlow", "GraphQL"],
     color: "bg-gradient-to-br from-indigo-400 to-purple-500",
+  },
+  {
+    id: 4,
+    title: "Softpatrol",
+    category: "Security & Management",
+    description:
+      "Cutting-edge guard tracking app that redefines security management with real-time GPS tracking, incident logging, and patrol route monitoring.",
+    image: "/softpatrol-dashboard.webp",
+    technologies: ["Flutter", "Firebase", "GPS Integration", "Real-time Tracking"],
+    color: "bg-gradient-to-br from-cyan-400 to-blue-500",
+  },
+  {
+    id: 5,
+    title: "TBMS Driver",
+    category: "Transportation & Logistics",
+    description:
+      "Advanced taxi dispatch management system with real-time job tracking, driver management, and comprehensive business analytics for modern taxi operations.",
+    image: "/tbms-dashboard.webp",
+    technologies: ["Flutter", "Real-time Tracking", "Payment Integration", "Cloud Dispatch"],
+    color: "bg-gradient-to-br from-emerald-400 to-teal-500",
   },
 ]
 

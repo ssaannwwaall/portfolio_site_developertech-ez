@@ -68,6 +68,9 @@ export function BlogSection() {
                       src={post.image || "/placeholder.svg"}
                       alt={post.title}
                       className="w-full h-48 object-cover rounded-lg"
+                      onError={(e) => {
+                        e.currentTarget.src = `/placeholder.svg?height=192&width=384&query=${encodeURIComponent(post.title)}`
+                      }}
                     />
                   </div>
                 </div>

@@ -11,33 +11,6 @@ import Image from "next/image"
 const projects = [
   {
     id: 1,
-    title: "FitTracker Pro",
-    category: "Health & Fitness",
-    description: "A comprehensive fitness tracking app with AI-powered workout recommendations and social features.",
-    fullDescription:
-      "FitTracker Pro is a revolutionary fitness application that combines artificial intelligence with social networking to create the ultimate workout companion. The app features personalized workout plans, real-time form correction using computer vision, and a vibrant community where users can share their fitness journey. With over 500+ exercises in the database and integration with popular wearables, FitTracker Pro has helped thousands of users achieve their fitness goals.",
-    image: "/fitness-app-interface.png",
-    images: [
-      "/fitness-app-interface.png",
-      "/fitness-app-workout.png",
-      "/fitness-app-social.png",
-      "/placeholder-wtcyg.png",
-    ],
-    technologies: ["React Native", "Node.js", "MongoDB", "TensorFlow", "Socket.io"],
-    color: "bg-gradient-to-br from-green-400 to-blue-500",
-    features: [
-      "AI-powered workout recommendations",
-      "Real-time form correction",
-      "Social fitness community",
-      "Wearable device integration",
-      "Progress analytics",
-    ],
-    playStoreUrl: "#",
-    appStoreUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    id: 2,
     title: "TaskMaster",
     category: "Productivity",
     description: "Smart task management app with team collaboration and advanced analytics.",
@@ -64,7 +37,7 @@ const projects = [
     githubUrl: "#",
   },
   {
-    id: 3,
+    id: 2,
     title: "FoodieExplorer",
     category: "Food & Drink",
     description: "Discover local restaurants with AR menu scanning and social reviews.",
@@ -91,61 +64,7 @@ const projects = [
     githubUrl: "#",
   },
   {
-    id: 4,
-    title: "CryptoWallet",
-    category: "Finance",
-    description: "Secure cryptocurrency wallet with portfolio tracking and trading features.",
-    fullDescription:
-      "CryptoWallet provides a secure and user-friendly platform for managing cryptocurrency investments. With bank-level security, real-time market data, and advanced portfolio analytics, users can confidently trade and track their digital assets. The app supports multiple cryptocurrencies and includes features like price alerts, news integration, and educational resources.",
-    image: "/placeholder-qd5fn.png",
-    images: [
-      "/crypto-wallet-interface.png",
-      "/portfolio-tracking-dashboard.png",
-      "/trading-interface.png",
-      "/security-settings-screen.png",
-    ],
-    technologies: ["Kotlin", "Blockchain API", "SQLite", "Retrofit", "Biometric Auth"],
-    color: "bg-gradient-to-br from-yellow-400 to-orange-500",
-    features: [
-      "Multi-currency support",
-      "Real-time market data",
-      "Advanced security",
-      "Portfolio analytics",
-      "Price alerts",
-    ],
-    playStoreUrl: "#",
-    appStoreUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    id: 5,
-    title: "MindfulMoments",
-    category: "Health & Wellness",
-    description: "Meditation and mindfulness app with guided sessions and progress tracking.",
-    fullDescription:
-      "MindfulMoments offers a comprehensive meditation and mindfulness experience with guided sessions, breathing exercises, and progress tracking. The app features content from certified meditation instructors, customizable ambient sounds, and detailed analytics to help users build a consistent mindfulness practice. With offline support and Apple Health integration, users can meditate anywhere, anytime.",
-    image: "/meditation-app-interface.png",
-    images: [
-      "/meditation-app-interface.png",
-      "/guided-meditation.png",
-      "/breathing-exercises-interface.png",
-      "/placeholder.svg?height=400&width=300",
-    ],
-    technologies: ["React Native", "Redux", "AWS", "HealthKit", "Audio Processing"],
-    color: "bg-gradient-to-br from-teal-400 to-green-500",
-    features: [
-      "Guided meditation sessions",
-      "Breathing exercises",
-      "Progress tracking",
-      "Offline support",
-      "Health app integration",
-    ],
-    playStoreUrl: "#",
-    appStoreUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    id: 6,
+    id: 3,
     title: "ShopSmart",
     category: "E-commerce",
     description: "AI-powered shopping assistant with price comparison and deal alerts.",
@@ -171,6 +90,90 @@ const projects = [
     appStoreUrl: "#",
     githubUrl: "#",
   },
+  {
+    id: 4,
+    title: "Softpatrol",
+    category: "Security & Business",
+    description: "Comprehensive security guard tracking and management system with real-time monitoring.",
+    fullDescription:
+      "Softpatrol is a cutting-edge security management application designed to revolutionize how security companies track and manage their guard operations. Built with Flutter and Firebase, this comprehensive solution offers real-time GPS tracking, incident logging, shift management, and detailed analytics. The app ensures accountability, improves response times, and provides complete visibility into security operations with features like patrol route monitoring, emergency alerts, and automated reporting.",
+    image: "/softpatrol-splash.webp",
+    images: [
+      "/softpatrol-splash.webp",
+      "/softpatrol-login.webp",
+      "/softpatrol-dashboard.webp",
+      "/softpatrol-schedule.webp",
+      "/softpatrol-tracking.webp",
+      "/softpatrol-history.webp",
+      "/softpatrol-holidays.webp",
+    ],
+    technologies: [
+      "Flutter",
+      "Firebase",
+      "Google Maps API",
+      "GPS Tracking",
+      "Real-time Database",
+      "Push Notifications",
+    ],
+    color: "bg-gradient-to-br from-cyan-400 to-blue-500",
+    features: [
+      "Real-time GPS tracking",
+      "Shift scheduling & management",
+      "Incident logging & reporting",
+      "Route monitoring",
+      "Emergency SOS alerts",
+      "Holiday & availability management",
+      "Comprehensive analytics",
+      "Multi-location support",
+    ],
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.computerfriends.soft.patrol&hl=en",
+    appStoreUrl: "https://apps.apple.com/us/app/softpatrol-staff/id6475000861",
+    githubUrl: "#",
+  },
+  {
+    id: 5,
+    title: "TBMS Driver",
+    category: "Transportation & Logistics",
+    description:
+      "Advanced taxi dispatch management system with real-time job tracking, driver management, and comprehensive business analytics for modern taxi operations.",
+    fullDescription:
+      "TBMS Driver is an affordable yet advanced cloud-based dispatch system designed for modern taxi operations. This comprehensive solution offers real-time job tracking, driver management, customer handling, account invoices, and many advanced functions. The system is enriched with features to deliver seamless taxi business operations, including GPS tracking, payment integration, job bidding, and detailed analytics. Regular updates and improvements help keep up with new industry trends and requirements.",
+    image: "/tbms-dashboard.webp",
+    images: [
+      "/tbms-splash.webp",
+      "/tbms-login.webp",
+      "/tbms-dashboard.webp",
+      "/tbms-jobs.webp",
+      "/tbms-details.webp",
+      "/tbms-tablet.webp",
+      "/tbms-earnings.webp",
+    ],
+    technologies: [
+      "Flutter",
+      "Cloud Dispatch System",
+      "GPS Tracking",
+      "Payment Integration",
+      "Real-time Database",
+      "Job Management",
+      "Analytics Dashboard",
+    ],
+    color: "bg-gradient-to-br from-emerald-400 to-teal-500",
+    features: [
+      "Cloud-based dispatch system",
+      "Real-time job tracking",
+      "Driver management & scheduling",
+      "Customer handling system",
+      "Account invoices & billing",
+      "GPS location tracking",
+      "Job bidding system",
+      "Comprehensive analytics",
+      "Multi-device compatibility",
+      "Payment processing",
+    ],
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.optiinfo.tbms_driver_new&hl=en",
+    appStoreUrl: "https://apps.apple.com/us/app/tbms-driver-taxi-system/id633426576",
+    githubUrl: "#",
+  },
 ]
 
 export default function ProjectDetailPage({ params }: { params: { id: string } }) {
@@ -184,6 +187,16 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
     const message = `Hi Sanwal Khan! I'm interested in learning more about your ${project.title} project. Can we discuss mobile app development services?`
     const whatsappUrl = `https://wa.me/923074494175?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, "_blank")
+  }
+
+  const handleViewDemo = () => {
+    if (project.playStoreUrl && project.playStoreUrl !== "#") {
+      window.open(project.playStoreUrl, "_blank")
+    } else {
+      const message = `Hi Sanwal Khan! I'd like to see a demo of your ${project.title} project. Can you show me how it works?`
+      const whatsappUrl = `https://wa.me/923074494175?text=${encodeURIComponent(message)}`
+      window.open(whatsappUrl, "_blank")
+    }
   }
 
   return (
@@ -229,9 +242,10 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
                   size="lg"
                   variant="outline"
                   className="border-white text-white hover:bg-white/10 bg-transparent"
+                  onClick={handleViewDemo}
                 >
                   <ExternalLink className="h-4 w-4 mr-2" />
-                  Live Demo
+                  {project.playStoreUrl && project.playStoreUrl !== "#" ? "View on Play Store" : "Request Demo"}
                 </Button>
               </div>
             </div>
@@ -313,11 +327,35 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold mb-4">Download App</h3>
                   <div className="space-y-3">
-                    <Button className="w-full bg-transparent" variant="outline">
+                    <Button
+                      className="w-full bg-transparent"
+                      variant="outline"
+                      onClick={() => {
+                        if (project.playStoreUrl && project.playStoreUrl !== "#") {
+                          window.open(project.playStoreUrl, "_blank")
+                        } else {
+                          const message = `Hi Sanwal Khan! I'm interested in downloading your ${project.title} app. Can you provide the Play Store link?`
+                          const whatsappUrl = `https://wa.me/923074494175?text=${encodeURIComponent(message)}`
+                          window.open(whatsappUrl, "_blank")
+                        }
+                      }}
+                    >
                       <ExternalLink className="h-4 w-4 mr-2" />
                       Google Play Store
                     </Button>
-                    <Button className="w-full bg-transparent" variant="outline">
+                    <Button
+                      className="w-full bg-transparent"
+                      variant="outline"
+                      onClick={() => {
+                        if (project.appStoreUrl && project.appStoreUrl !== "#") {
+                          window.open(project.appStoreUrl, "_blank")
+                        } else {
+                          const message = `Hi Sanwal Khan! I'm interested in downloading your ${project.title} app. Can you provide the App Store link?`
+                          const whatsappUrl = `https://wa.me/923074494175?text=${encodeURIComponent(message)}`
+                          window.open(whatsappUrl, "_blank")
+                        }
+                      }}
+                    >
                       <ExternalLink className="h-4 w-4 mr-2" />
                       Apple App Store
                     </Button>

@@ -24,14 +24,14 @@ export function HeroSection() {
         </div>
 
         <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-          Best Mobile App Developer & Flutter Expert - Sanwal Khan
+          Hire Flutter Developer | Cross-Platform Mobile App Development Expert
         </h1>
 
         <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-          I'm Sanwal Khan, a Flutter developer and expert in mobile engineering with 5+ years of experience. As Director
-          at DeveloperTech, I have built innovative iOS and Android applications that deliver seamless user experiences,
-          achieve 100K+ downloads, and help businesses grow. Recognized as one of the best mobile app developers, I
-          specialize in crafting scalable and user-friendly apps tailored to client needs.
+          Professional Flutter App Developer specializing in Cross-Platform Mobile App Development for Android and iOS.
+          As a Firebase Flutter Developer with 5+ years experience, I deliver Custom Mobile App Development Services
+          including AI + Mobile App Development. Hire Flutter Developer for scalable, user-friendly apps with 100K+
+          downloads.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

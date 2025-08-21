@@ -16,24 +16,34 @@ const openSans = Open_Sans({
 })
 
 export const metadata: Metadata = {
-  title: "Sanwal Khan - Flutter Developer Pakistan | Mobile App Developer Android iOS | DeveloperTech",
+  title: "Hire Flutter Developer | Cross-Platform Mobile App Development | Android iOS Expert - Sanwal Khan",
   description:
-    "Hire Flutter developer in Pakistan - Sanwal Khan, Director at DeveloperTech. Expert Flutter Firebase developer with 5+ years experience in mobile app development for Android & iOS. 100+ apps delivered.",
+    "Professional Flutter App Developer & Cross-Platform Mobile App Development expert. Hire Flutter developer for Android & iOS apps with Firebase integration. 5+ years experience, 100+ apps delivered by Sanwal Khan at DeveloperTech.",
   keywords: [
-    "Flutter developer Pakistan",
-    "Mobile app developer Android iOS",
-    "Hire Flutter developer",
-    "Flutter Firebase developer",
-    "Pakistan mobile app development",
-    "Android app developer Pakistan",
-    "iOS app developer Pakistan",
-    "Flutter expert Pakistan",
-    "Mobile app development services",
-    "Cross-platform app developer",
-    "React Native developer Pakistan",
-    "App development company Pakistan",
-    "DeveloperTech Pakistan",
+    // Global SEO Keywords
+    "Flutter App Developer",
+    "Hire Flutter Developer",
+    "Cross-Platform Mobile App Development",
+    "Android and iOS App Development",
+    "Firebase Flutter Developer",
+    "Hybrid Mobile App Developer",
+    "AI + Mobile App Development",
+    "Custom Mobile App Development Services",
+    // Local SEO Keywords
+    "Flutter App Developer in Lahore",
+    "Mobile App Development Company in Lahore",
+    "Hire Flutter Developer in Pakistan",
+    "Flutter Developer UK",
+    "Android iOS App Developer in Pakistan",
+    "Best Mobile App Development Services Lahore",
+    // Long-tail Keywords
+    "Affordable Flutter App Developer for Startups",
+    "Best Freelancer Flutter Developer 2025",
+    "Flutter App with Firebase Integration",
+    "Flutter App Developer for AI and Chatbot Apps",
+    "Flutter App Developer for Taxi Booking Apps",
     "Sanwal Khan Flutter developer",
+    "DeveloperTech Pakistan",
   ],
   authors: [{ name: "Sanwal Khan", url: "https://developertech.pk" }],
   creator: "Sanwal Khan - DeveloperTech",
@@ -43,9 +53,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://developertech.pk",
-    title: "Sanwal Khan - Flutter Developer Pakistan | Mobile App Developer",
+    title: "Hire Flutter Developer | Cross-Platform Mobile App Development Expert",
     description:
-      "Expert Flutter developer in Pakistan with 5+ years experience. Hire top mobile app developer for Android & iOS development.",
+      "Professional Flutter App Developer with 5+ years experience. Cross-platform mobile app development for Android & iOS with Firebase integration. Hire top Flutter developer.",
     siteName: "DeveloperTech - Sanwal Khan Portfolio",
     images: [
       {
@@ -58,8 +68,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sanwal Khan - Flutter Developer Pakistan",
-    description: "Expert Flutter developer in Pakistan. Mobile app development for Android & iOS.",
+    title: "Hire Flutter Developer | Cross-Platform Mobile App Development",
+    description:
+      "Professional Flutter App Developer. Cross-platform mobile app development for Android & iOS with Firebase integration.",
     images: ["/images/company-logo.png"],
   },
   alternates: {
