@@ -4,75 +4,35 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated color tokens to match DeveloperTech cyan/teal branding */
-  --background: oklch(1 0 0); /* #ffffff */
-  --foreground: oklch(0.35 0.01 258.34); /* #475569 */
-  --card: oklch(0.98 0.01 200); /* #f0fdfa */
-  --card-foreground: oklch(0.35 0.01 258.34); /* #475569 */
-  --popover: oklch(1 0 0); /* #ffffff */
-  --popover-foreground: oklch(0.35 0.01 258.34); /* #475569 */
-  --primary: oklch(0.55 0.15 200); /* #0891b2 - cyan-600 */
-  --primary-foreground: oklch(1 0 0); /* #ffffff */
-  --secondary: oklch(0.45 0.12 180); /* #0d9488 - teal-600 */
-  --secondary-foreground: oklch(1 0 0); /* #ffffff */
-  --muted: oklch(0.98 0 0); /* #f9f9f9 */
-  --muted-foreground: oklch(0.35 0.01 258.34); /* #475569 */
-  --accent: oklch(0.65 0.18 190); /* #06b6d4 - cyan-500 */
-  --accent-foreground: oklch(1 0 0); /* #ffffff */
-  --destructive: oklch(0.6 0.25 15); /* #ff4d4d */
-  --destructive-foreground: oklch(1 0 0); /* #ffffff */
-  --border: oklch(0.92 0.01 258.34); /* #e5e7eb */
-  --input: oklch(0.96 0.01 258.34); /* #f3f4f6 */
-  --ring: oklch(0.55 0.15 200 / 0.5); /* rgba(8, 145, 178, 0.5) */
-  --chart-1: oklch(0.55 0.15 200); /* #0891b2 */
-  --chart-2: oklch(0.45 0.12 180); /* #0d9488 */
-  --chart-3: oklch(0.65 0.18 190); /* #06b6d4 */
-  --chart-4: oklch(0.35 0.1 170); /* #134e4a */
-  --chart-5: oklch(0.75 0.2 210); /* #22d3ee */
-  --radius: 0.5rem;
-  --sidebar: oklch(0.98 0.01 200); /* #f0fdfa */
-  --sidebar-foreground: oklch(0.35 0.01 258.34); /* #475569 */
-  --sidebar-primary: oklch(0.55 0.15 200); /* #0891b2 */
-  --sidebar-primary-foreground: oklch(1 0 0); /* #ffffff */
-  --sidebar-accent: oklch(0.65 0.18 190); /* #06b6d4 */
-  --sidebar-accent-foreground: oklch(1 0 0); /* #ffffff */
-  --sidebar-border: oklch(0.92 0.01 258.34); /* #e5e7eb */
-  --sidebar-ring: oklch(0.55 0.15 200 / 0.5); /* rgba(8, 145, 178, 0.5) */
-}
-
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  /* DevelopersTech — Premium Dark Design System */
+  --background: oklch(0.08 0.015 280);
+  --foreground: oklch(0.97 0 0);
+  --card: oklch(0.11 0.012 280);
+  --card-foreground: oklch(0.97 0 0);
+  --popover: oklch(0.11 0.012 280);
+  --popover-foreground: oklch(0.97 0 0);
+  --primary: oklch(0.62 0.22 260);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.18 0.01 280);
+  --secondary-foreground: oklch(0.97 0 0);
+  --muted: oklch(0.17 0.01 280);
+  --muted-foreground: oklch(0.52 0.01 280);
+  --accent: oklch(0.65 0.22 295);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.55 0.22 20);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.22 0.01 280);
+  --input: oklch(0.18 0.01 280);
+  --ring: oklch(0.62 0.22 260 / 0.4);
+  --radius: 0.75rem;
+  --sidebar: oklch(0.11 0.012 280);
+  --sidebar-foreground: oklch(0.97 0 0);
+  --sidebar-primary: oklch(0.62 0.22 260);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.65 0.22 295);
+  --sidebar-accent-foreground: oklch(1 0 0);
+  --sidebar-border: oklch(0.22 0.01 280);
+  --sidebar-ring: oklch(0.62 0.22 260 / 0.4);
 }
 
 @theme inline {
@@ -95,11 +55,6 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -112,10 +67,8 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  /* Updated font variables to match layout.tsx configuration */
-  --font-sans: var(--font-geist);
-  --font-serif: var(--font-manrope);
-  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
 @layer base {
@@ -125,32 +78,160 @@
   body {
     @apply bg-background text-foreground;
   }
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
-/* Added WhatsApp floating button styles */
+/* ─── Gradient text ─── */
+.gradient-text {
+  background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Dot grid background ─── */
+.dot-grid {
+  background-image: radial-gradient(circle, oklch(0.35 0.01 280 / 0.5) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ─── Glow effects ─── */
+.glow-blue {
+  box-shadow: 0 0 60px oklch(0.62 0.22 260 / 0.15);
+}
+
+.glow-card {
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+.glow-card:hover {
+  box-shadow: 0 0 30px oklch(0.62 0.22 260 / 0.12);
+  border-color: oklch(0.35 0.08 260 / 0.8);
+  transform: translateY(-2px);
+}
+
+/* ─── Glass morphism ─── */
+.glass {
+  background: oklch(0.13 0.01 280 / 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid oklch(0.28 0.01 280 / 0.6);
+}
+
+/* ─── Hero gradient orbs ─── */
+.hero-orb-1 {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, oklch(0.62 0.22 260 / 0.1) 0%, transparent 70%);
+  top: -200px;
+  right: -100px;
+  pointer-events: none;
+}
+.hero-orb-2 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, oklch(0.65 0.22 295 / 0.08) 0%, transparent 70%);
+  bottom: -100px;
+  left: -100px;
+  pointer-events: none;
+}
+
+/* ─── WhatsApp float ─── */
 .whatsapp-float {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
   background: #25d366;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  box-shadow: 0 4px 24px rgba(37, 211, 102, 0.4);
   z-index: 1000;
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
 }
-
 .whatsapp-float:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.5);
 }
-
 .whatsapp-float svg {
   color: white;
 }
+
+/* ─── Tech badge ─── */
+.tech-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: oklch(0.15 0.01 280);
+  border: 1px solid oklch(0.25 0.01 280);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: oklch(0.75 0.01 280);
+  transition: all 0.2s ease;
+}
+.tech-badge:hover {
+  background: oklch(0.18 0.02 260);
+  border-color: oklch(0.35 0.08 260 / 0.8);
+  color: oklch(0.85 0 0);
+}
+
+/* ─── Gradient border card ─── */
+.gradient-border-card {
+  position: relative;
+  border-radius: var(--radius);
+}
+.gradient-border-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, oklch(0.62 0.22 260 / 0.4), oklch(0.65 0.22 295 / 0.4));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ─── Section spacing ─── */
+.section-padding {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+/* ─── Fade-in animation ─── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out both;
+}
+.animation-delay-100 { animation-delay: 0.1s; }
+.animation-delay-200 { animation-delay: 0.2s; }
+.animation-delay-300 { animation-delay: 0.3s; }
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: oklch(0.08 0.015 280); }
+::-webkit-scrollbar-thumb { background: oklch(0.25 0.01 280); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: oklch(0.35 0.05 260); }

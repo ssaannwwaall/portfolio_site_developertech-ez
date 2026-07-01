@@ -1,9 +1,11 @@
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
+import { ServicesSection } from "@/components/services-section"
 import { ProjectsSection } from "@/components/projects-section"
 import { AboutSection } from "@/components/about-section"
-import { BlogSection } from "@/components/blog-section"
+import { TechStackSection } from "@/components/tech-stack-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
+import { FaqSection } from "@/components/faq-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
 import { WhatsAppFloat } from "@/components/whatsapp-float"
@@ -14,10 +16,12 @@ export default function HomePage() {
       <Header />
       <main>
         <HeroSection />
+        <ServicesSection />
         <ProjectsSection />
         <AboutSection />
-        <BlogSection />
+        <TechStackSection />
         <TestimonialsSection />
+        <FaqSection />
         <ContactSection />
       </main>
       <Footer />

@@ -3,18 +3,16 @@
 import { MessageCircle } from "lucide-react"
 
 export function WhatsAppFloat() {
-  const handleWhatsAppClick = () => {
-    const phoneNumber = "923074494175" // Sanwal Khan's number without + and spaces
-    const message = "Hi Sanwal! I'm interested in discussing a mobile app project with you."
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
-    window.open(whatsappUrl, "_blank")
+  const handleClick = () => {
+    const msg = "Hi Sanwal! I'm interested in discussing a project with DevelopersTech."
+    window.open(`https://wa.me/923074494175?text=${encodeURIComponent(msg)}`, "_blank")
   }
 
   return (
     <button
-      onClick={handleWhatsAppClick}
+      onClick={handleClick}
       className="whatsapp-float"
-      aria-label="Contact via WhatsApp"
+      aria-label="Contact DevelopersTech via WhatsApp"
       title="Chat with us on WhatsApp"
     >
       <MessageCircle size={24} />

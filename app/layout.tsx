@@ -1,82 +1,66 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Work_Sans, Open_Sans } from "next/font/google"
+import { GeistSans } from "geist/font/sans"
+import { GeistMono } from "geist/font/mono"
 import "./globals.css"
 
-const workSans = Work_Sans({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-work-sans",
-})
-
-const openSans = Open_Sans({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-open-sans",
-})
-
 export const metadata: Metadata = {
-  title: "Hire Flutter Developer | Cross-Platform Mobile App Development | Android iOS Expert - Sanwal Khan",
+  title: "DevelopersTech | Software Development Company — Flutter, AI & Enterprise Solutions",
   description:
-    "Professional Flutter App Developer & Cross-Platform Mobile App Development expert. Hire Flutter developer for Android & iOS apps with Firebase integration. 5+ years experience, 100+ apps delivered by Sanwal Khan at DeveloperTech.",
+    "DevelopersTech is a premium software development company founded by Sanwal Khan. We specialize in Flutter mobile apps, AI-powered applications, enterprise SaaS, web platforms, and digital growth services for startups and businesses worldwide.",
   keywords: [
-    // Global SEO Keywords
-    "Flutter App Developer",
-    "Hire Flutter Developer",
-    "Cross-Platform Mobile App Development",
-    "Android and iOS App Development",
-    "Firebase Flutter Developer",
-    "Hybrid Mobile App Developer",
-    "AI + Mobile App Development",
-    "Custom Mobile App Development Services",
-    // Local SEO Keywords
-    "Flutter App Developer in Lahore",
-    "Mobile App Development Company in Lahore",
-    "Hire Flutter Developer in Pakistan",
-    "Flutter Developer UK",
-    "Android iOS App Developer in Pakistan",
-    "Best Mobile App Development Services Lahore",
-    // Long-tail Keywords
-    "Affordable Flutter App Developer for Startups",
-    "Best Freelancer Flutter Developer 2025",
-    "Flutter App with Firebase Integration",
-    "Flutter App Developer for AI and Chatbot Apps",
-    "Flutter App Developer for Taxi Booking Apps",
-    "Sanwal Khan Flutter developer",
-    "DeveloperTech Pakistan",
+    "DevelopersTech",
+    "Software Development Company",
+    "Flutter Development Company",
+    "Mobile App Development",
+    "Sanwal Khan Software Engineer",
+    "Sanwal Khan Flutter Developer",
+    "AI Development Company",
+    "Enterprise Software Development",
+    "Custom Software Development",
+    "SaaS Development",
+    "Web Application Development",
+    "Cross Platform App Development",
+    "Flutter App Developer Pakistan",
+    "Taxi Dispatch Software",
+    "Guard Monitoring Software",
+    "B2B Lead Generation",
+    "SEO Services",
+    "Business Automation",
+    "API Development",
+    "Backend Development Services",
   ],
-  authors: [{ name: "Sanwal Khan", url: "https://developertech.pk" }],
-  creator: "Sanwal Khan - DeveloperTech",
-  publisher: "DeveloperTech",
-  robots: "index, follow",
+  authors: [{ name: "Sanwal Khan", url: "https://developerstechs.com" }],
+  creator: "Sanwal Khan — DevelopersTech",
+  publisher: "DevelopersTech",
+  robots: { index: true, follow: true },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://developertech.pk",
-    title: "Hire Flutter Developer | Cross-Platform Mobile App Development Expert",
+    url: "https://developerstechs.com",
+    title: "DevelopersTech | Software Development Company",
     description:
-      "Professional Flutter App Developer with 5+ years experience. Cross-platform mobile app development for Android & iOS with Firebase integration. Hire top Flutter developer.",
-    siteName: "DeveloperTech - Sanwal Khan Portfolio",
+      "Premium software development — Flutter, AI, Enterprise SaaS, Web Apps. Founded by Sanwal Khan with 5+ years of engineering experience.",
+    siteName: "DevelopersTech",
     images: [
       {
         url: "/images/company-logo.png",
         width: 1200,
         height: 630,
-        alt: "DeveloperTech - Flutter Developer Pakistan",
+        alt: "DevelopersTech — Software Development Company",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hire Flutter Developer | Cross-Platform Mobile App Development",
+    title: "DevelopersTech | Software Development Company",
     description:
-      "Professional Flutter App Developer. Cross-platform mobile app development for Android & iOS with Firebase integration.",
+      "Premium software development — Flutter, AI, Enterprise SaaS, and Web Apps for startups and enterprises.",
     images: ["/images/company-logo.png"],
   },
   alternates: {
-    canonical: "https://developertech.pk",
+    canonical: "https://developerstechs.com",
   },
-  generator: "v0.app",
 }
 
 export default function RootLayout({
@@ -85,8 +69,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${workSans.variable} ${openSans.variable} antialiased`}>
-      <body className="font-sans">{children}</body>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} dark`}>
+      <body className="antialiased font-sans">{children}</body>
     </html>
   )
 }
