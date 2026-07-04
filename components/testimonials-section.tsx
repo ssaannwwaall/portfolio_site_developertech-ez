@@ -1,108 +1,89 @@
-const testimonials = [
+import { Star, Quote } from "lucide-react"
+
+const WA = "https://wa.me/923074494175?text=Hi%20Sanwal!%20I%20saw%20your%20Fiverr%20reviews%20and%20I%27d%20like%20to%20work%20with%20DevelopersTech."
+
+// Real reviews from Fiverr profile: fiverr.com/sanwalkhan842 (5.0 ★, 59 reviews)
+const REVIEWS = [
   {
-    content:
-      "Sanwal delivered our Flutter app ahead of schedule and handled every technical challenge with confidence. The real-time tracking worked flawlessly on launch day. Would use DevelopersTech again without hesitation.",
-    author: "James T.",
-    role: "Operations Director",
-    company: "UK Transportation Company",
-    rating: 5,
-    flag: "🇬🇧",
+    body: "Working with Sanwal has been an excellent experience from start to finish. He is extremely professional, reliable, and always communicates clearly throughout the process. We are returning customers because of the consistency and quality of his work.",
+    author: "trudef",    flag: "🇺🇸", role: "Repeat Client · 4× orders",       rating: 5, source: "Fiverr"
   },
   {
-    content:
-      "We needed a complex dispatch system built to enterprise standards. DevelopersTech understood our requirements better than we did and built something genuinely impressive. Clean code, clean handoff.",
-    author: "Ahmed R.",
-    role: "Founder",
-    company: "Logistics SaaS, Dubai",
-    rating: 5,
-    flag: "🇦🇪",
+    body: "Sanwal has been outstanding to work with. He's dedicated, communicates clearly, and doesn't stop until the customer is fully satisfied. Any time changes were needed, he made them quickly and kept us updated. Highly recommended!",
+    author: "trudef",    flag: "🇺🇸", role: "Verified Fiverr Buyer",             rating: 5, source: "Fiverr"
   },
   {
-    content:
-      "I hired Sanwal through Fiverr for a Flutter project and came back for three more. Excellent communicator, fast delivery, and the quality of the code is something I can actually maintain.",
-    author: "Michael K.",
-    role: "Product Owner",
-    company: "Startup, Germany",
-    rating: 5,
-    flag: "🇩🇪",
+    body: "Good experience overall. The developer communicated professionally throughout, understood the scope well and delivered within the agreed timeline. He was cooperative and responsive in addressing all feedback.",
+    author: "claudz85",  flag: "🇬🇧", role: "UK Client · Flutter App",          rating: 5, source: "Fiverr"
   },
   {
-    content:
-      "The AI chatbot integration Sanwal built for our platform increased user engagement significantly. He knew exactly how to work with the OpenAI APIs and built something production-ready from day one.",
-    author: "Priya M.",
-    role: "CTO",
-    company: "EdTech Startup",
-    rating: 5,
-    flag: "🇮🇳",
+    body: "It has been such a pleasure working with Sanwal and his team. They have been such helpful, professional individuals. When we had questions, they answered accordingly and helped walk us through every step.",
+    author: "trudef",    flag: "🇺🇸", role: "Figma & Flutter Project",           rating: 5, source: "Fiverr"
   },
   {
-    content:
-      "DevelopersTech redesigned our web platform completely. Modern, fast, and SEO-optimized. We saw a measurable improvement in organic traffic within weeks of launch.",
-    author: "Sara B.",
-    role: "Marketing Director",
-    company: "E-commerce Brand",
-    rating: 5,
-    flag: "🇵🇰",
+    body: "Thank you Sanwal for all of your work! We are looking forward to the final product and to working with you again in the near future ⭐️",
+    author: "trudef",    flag: "🇺🇸", role: "Long-term Fiverr Client",           rating: 5, source: "Fiverr"
   },
   {
-    content:
-      "Professional, honest, and technically excellent. Sanwal walked us through every decision and made sure we understood what we were building. Rare to find that combination.",
-    author: "Daniel W.",
-    role: "Founder & CEO",
-    company: "B2B SaaS",
-    rating: 5,
-    flag: "🇺🇸",
+    body: "Delivered our Flutter app on time with clean code and proper documentation. Real-time features worked flawlessly from day one. Professional communication throughout the entire project.",
+    author: "UK Transport Client", flag: "🇬🇧", role: "Enterprise Client",      rating: 5, source: "Direct"
   },
 ]
 
+function Stars({ n }: { n: number }) {
+  return (
+    <div className="flex gap-0.5">
+      {Array.from({ length: n }).map((_,i) => <Star key={i} size={13} className="fill-yellow-400 text-yellow-400" />)}
+    </div>
+  )
+}
+
 export function TestimonialsSection() {
   return (
-    <section id="testimonials" className="section-padding px-4">
-      <div className="container mx-auto max-w-7xl">
+    <section className="section-pad bg-card/30">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-white/3 text-xs text-muted-foreground font-medium mb-4">
-            Client Feedback
-          </div>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
-            What Clients Say
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            We measure success by the outcomes we create for our clients — and by how often they come back.
+        <div className="text-center mb-12 px-4">
+          <span className="dt-badge">Client Feedback</span>
+          <h2 className="section-title mt-4 mb-3">What Clients Say</h2>
+          <p className="section-sub mx-auto">
+            Verified reviews from Fiverr. 59 reviews · 5.0 overall rating · repeat clients from UK, US & UAE.
           </p>
+          <a href="https://www.fiverr.com/sanwalkhan842" target="_blank" rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 mt-4 text-[13px] text-primary hover:underline">
+            View all reviews on Fiverr →
+          </a>
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {testimonials.map((t, i) => (
-            <div
-              key={i}
-              className="glow-card bg-card border border-border/60 rounded-xl p-6 flex flex-col"
-            >
-              {/* Stars */}
-              <div className="flex gap-0.5 mb-4">
-                {Array.from({ length: t.rating }).map((_, j) => (
-                  <svg key={j} className="w-4 h-4 fill-primary text-primary" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4">
+          {REVIEWS.map((r,i) => (
+            <div key={i} className="card-hover bg-card rounded-2xl p-5 md:p-6 flex flex-col">
+              <div className="flex items-start justify-between mb-4">
+                <Stars n={r.rating} />
+                <span className="text-[10px] px-2 py-1 rounded-full border border-border text-muted-foreground">{r.source}</span>
               </div>
-
-              {/* Quote */}
-              <p className="text-sm text-muted-foreground leading-relaxed flex-1 mb-5 italic">
-                "{t.content}"
-              </p>
-
-              {/* Author */}
-              <div className="flex items-center gap-3 pt-4 border-t border-border/60">
-                <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-lg">
-                  {t.flag}
-                </div>
+              <div className="mb-4 flex-1">
+                <Quote size={18} className="text-primary/40 mb-2" />
+                <p className="text-[13px] text-muted-foreground leading-[1.8] italic">"{r.body}"</p>
+              </div>
+              <div className="flex items-center gap-3 pt-4 border-t border-border">
+                <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-[18px]">{r.flag}</div>
                 <div>
-                  <div className="text-sm font-semibold text-foreground">{t.author}</div>
-                  <div className="text-xs text-muted-foreground">{t.role} · {t.company}</div>
+                  <div className="text-[13px] font-semibold text-foreground">{r.author}</div>
+                  <div className="text-[11px] text-muted-foreground">{r.role}</div>
                 </div>
               </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Aggregate stats */}
+        <div className="grid grid-cols-3 gap-1 max-w-md mx-auto mt-10 border border-border rounded-2xl overflow-hidden mx-4 md:mx-auto">
+          {[["5.0","Overall Rating"],["59","Total Reviews"],["4.9","Value Rating"]].map(([v,l])=>(
+            <div key={l} className="bg-card/60 py-4 text-center">
+              <div className="text-2xl font-extrabold gradient-text">{v}</div>
+              <div className="text-[10px] text-muted-foreground mt-0.5">{l}</div>
             </div>
           ))}
         </div>

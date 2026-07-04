@@ -1,21 +1,10 @@
 "use client"
-
 import { MessageCircle } from "lucide-react"
-
+const WA = "https://wa.me/923074494175?text=Hi%20Sanwal!%20I%27m%20interested%20in%20discussing%20a%20project%20with%20DevelopersTech."
 export function WhatsAppFloat() {
-  const handleClick = () => {
-    const msg = "Hi Sanwal! I'm interested in discussing a project with DevelopersTech."
-    window.open(`https://wa.me/923074494175?text=${encodeURIComponent(msg)}`, "_blank")
-  }
-
   return (
-    <button
-      onClick={handleClick}
-      className="whatsapp-float"
-      aria-label="Contact DevelopersTech via WhatsApp"
-      title="Chat with us on WhatsApp"
-    >
-      <MessageCircle size={24} />
-    </button>
+    <a href={WA} target="_blank" rel="noopener noreferrer" className="wa-float" aria-label="Chat on WhatsApp" title="Chat with DevelopersTech on WhatsApp">
+      <MessageCircle size={24} color="white" />
+    </a>
   )
 }
