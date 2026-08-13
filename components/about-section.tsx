@@ -29,7 +29,7 @@ export function AboutSection() {
           <MaskHeading text="Started with Java. Stayed for the craft." italic={3} />
           <Rise delay={0.25}>
             <div style={{ fontSize: 16.5, lineHeight: 1.82, color: "var(--body)", display: "flex", flexDirection: "column", gap: 17, margin: "26px 0 32px" }}>
-              <p>I began with Java desktop applications and socket programming. That grounding in architecture shapes how I approach every system I build today.</p>
+              <p>We began with Java desktop applications and socket programming. That grounding in architecture shapes how our team approaches every system we build today.</p>
               <p>Android came next, then Flutter, then five years building commercial software for a UK enterprise client. Taxi dispatch. Guard monitoring. Systems that had to work, every day, for real operators.</p>
             </div>
             <div style={{ display: "flex", gap: 38, paddingTop: 26, borderTop: "1px solid var(--line)", flexWrap: "wrap" }}>

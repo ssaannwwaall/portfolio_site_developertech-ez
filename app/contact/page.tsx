@@ -7,7 +7,7 @@ const WA = "https://wa.me/923074494175?text="
 const METHODS = [
   ["WhatsApp", "+92 307 449 4175", "Fastest, usually under 2 hours", "https://wa.me/923074494175"],
   ["Email", "khansanwal922@gmail.com", "For detailed project briefs", "mailto:khansanwal922@gmail.com"],
-  ["Studio", "Lahore, Pakistan", "Working with clients globally", ""],
+  ["Studio", "Remote first team", "Working with clients across four continents", ""],
 ]
 
 export default function ContactPage() {

@@ -68,8 +68,8 @@ export function HeroSection() {
                 opacity: go ? 1 : 0, transform: go ? "translateY(0)" : "translateY(20px)",
                 transition: "opacity .9s cubic-bezier(.16,1,.3,1) .62s, transform .9s cubic-bezier(.16,1,.3,1) .62s",
               }}>
-                A Lahore based engineering studio shipping Flutter apps, AI platforms and
-                enterprise systems for clients in the UK, UAE, Europe and the US.
+                We are an engineering studio shipping Flutter apps, AI platforms and
+                enterprise systems for clients across the UK, UAE, Europe and the US.
               </p>
 
               <div style={{

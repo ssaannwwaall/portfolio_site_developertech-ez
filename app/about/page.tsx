@@ -4,11 +4,11 @@ import { MaskHeading, Rise } from "@/components/mask-heading"
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Sanwal Khan, Managing Director and Co-Founder of DevelopersTech. Five years of Flutter, backend and enterprise software engineering.",
+  description: "DevelopersTech is an engineering team led by Sanwal Khan, with five years of Flutter, backend and enterprise software delivery.",
 }
 
 const SKILLS = [
-  ["Flutter and Dart", "Primary mobile stack, 5 years"],
+  ["Flutter and Dart", "Our primary mobile stack"],
   ["Java and Spring Boot", "Backend systems and APIs"],
   ["OpenAI and Claude", "Production AI integration"],
   ["Real time systems", "GPS, dispatch, WebSockets"],
@@ -23,8 +23,8 @@ export default function AboutPage() {
           <MaskHeading text="A small studio that builds like a big one." italic={4} tag="h1" className="h1" />
           <Rise delay={0.3}>
             <p className="lede" style={{ maxWidth: 540, marginTop: 22 }}>
-              Founded in Lahore in 2023. Serving clients across the UK, UAE, Europe
-              and the United States.
+              A focused engineering team serving clients across the UK, UAE, Europe
+              and the United States since 2023.
             </p>
           </Rise>
         </div>
@@ -56,15 +56,15 @@ export default function AboutPage() {
           <Rise delay={0.1}>
             <div style={{ fontSize: 17, lineHeight: 1.85, color: "var(--body)", display: "flex", flexDirection: "column", gap: 20 }}>
               <p style={{ fontSize: 21, color: "var(--ink)", lineHeight: 1.65 }}>
-                I began my career writing Java desktop applications and socket based systems.
-                It taught me architecture before it taught me frameworks.
+                We started where good engineering starts: Java desktop applications and socket
+                based systems. Architecture before frameworks.
               </p>
-              <p>From Java I moved to Android, then found Flutter and stayed. Five years later I have
-              shipped cross platform applications for Android, iOS, desktop and web from a single
-              codebase, at a level that holds up in production.</p>
-              <p>The most formative years were spent at a UK enterprise software company, building
+              <p>That foundation carried into Android, then into Flutter, where our team now ships
+              cross platform applications for Android, iOS, desktop and web from a single codebase,
+              at a level that holds up in production.</p>
+              <p>Our most formative years were spent building enterprise software for a UK client:
               taxi dispatch systems and guard monitoring platforms used commercially every day.
-              That work taught me the difference between software that demos well and software that
+              That work taught us the difference between software that demos well and software that
               survives contact with real operators.</p>
               <p>DevelopersTech exists to bring that standard to founders, small teams and growing
               businesses who need engineering they can trust.</p>

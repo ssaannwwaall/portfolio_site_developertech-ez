@@ -26,9 +26,9 @@ export function CustomCursor() {
     }
     raf = requestAnimationFrame(tick)
 
-    const grow = () => { r.style.width = "70px"; r.style.height = "70px"; r.style.opacity = ".45"; d.style.opacity = "0" }
+    const grow = () => { r.style.width = "70px"; r.style.height = "70px"; r.style.opacity = ".5"; d.style.opacity = "0" }
     const view = () => { grow(); l.style.opacity = "1" }
-    const reset = () => { r.style.width = "34px"; r.style.height = "34px"; r.style.opacity = ".75"; d.style.opacity = "1"; l.style.opacity = "0" }
+    const reset = () => { r.style.width = "34px"; r.style.height = "34px"; r.style.opacity = ".8"; d.style.opacity = "1"; l.style.opacity = "0" }
 
     const magEnter = (e: Event) => {
       const b = e.currentTarget as HTMLElement & { _mv?: (ev: MouseEvent) => void }
@@ -77,9 +77,9 @@ export function CustomCursor() {
   const base: React.CSSProperties = { position: "fixed", top: 0, left: 0, pointerEvents: "none", willChange: "transform" }
   return (
     <>
-      <div ref={dot} aria-hidden style={{ ...base, zIndex: 9999, width: 6, height: 6, borderRadius: "50%", background: "var(--ink)", transition: "opacity .25s" }} />
-      <div ref={ring} aria-hidden style={{ ...base, zIndex: 9998, width: 34, height: 34, borderRadius: "50%", border: "1px solid var(--ink)", opacity: .75, transition: "width .35s cubic-bezier(.16,1,.3,1),height .35s cubic-bezier(.16,1,.3,1),opacity .35s" }} />
-      <div ref={label} aria-hidden style={{ ...base, zIndex: 9999, fontSize: 10, fontWeight: 600, letterSpacing: ".14em", textTransform: "uppercase", color: "var(--ink)", opacity: 0, transition: "opacity .3s" }}>View</div>
+      <div ref={dot} aria-hidden style={{ ...base, zIndex: 9999, width: 7, height: 7, borderRadius: "50%", background: "#fff", mixBlendMode: "difference", transition: "opacity .25s" }} />
+      <div ref={ring} aria-hidden style={{ ...base, zIndex: 9998, width: 34, height: 34, borderRadius: "50%", border: "1.4px solid #fff", mixBlendMode: "difference", opacity: .8, transition: "width .35s cubic-bezier(.16,1,.3,1),height .35s cubic-bezier(.16,1,.3,1),opacity .35s" }} />
+      <div ref={label} aria-hidden style={{ ...base, zIndex: 9999, fontSize: 10, fontWeight: 700, letterSpacing: ".14em", textTransform: "uppercase", color: "#fff", mixBlendMode: "difference", opacity: 0, transition: "opacity .3s" }}>View</div>
     </>
   )
 }

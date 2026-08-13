@@ -18,8 +18,8 @@ export function Footer() {
               </span>
             </div>
             <p style={{ fontSize: 14.5, lineHeight: 1.78, color: "rgba(251,250,248,.54)", maxWidth: 270 }}>
-              An engineering studio in Lahore building Flutter applications, AI platforms
-              and enterprise systems for clients worldwide.
+              An engineering studio building Flutter applications, AI platforms and
+              enterprise systems for clients worldwide.
             </p>
           </div>
           <div>
@@ -36,13 +36,13 @@ export function Footer() {
           </div>
           <div>
             <div className="foot-h">Connect</div>
-            {[["WhatsApp", WA], ["Fiverr", FIVERR], ["LinkedIn", "https://linkedin.com/in/sanwal-khan-3b4019213"], ["Google Play", "https://play.google.com/store/apps/details?id=com.computerfriends.softpatrol"]].map(([l, u]) => (
+            {[["WhatsApp", WA], ["Fiverr", FIVERR], ["LinkedIn", "https://linkedin.com/in/sanwal-khan-3b4019213"], ["Google Play", "https://play.google.com/store/apps/details?id=com.computerfriends.soft.patrol"]].map(([l, u]) => (
               <a key={l} href={u} target="_blank" rel="noopener noreferrer" className="foot-link">{l} ↗</a>
             ))}
           </div>
         </div>
         <div className="foot-bottom">
-          <div>2025 DevelopersTech. Lahore, Pakistan.</div>
+          <div>2025 DevelopersTech. All rights reserved.</div>
           <div>khansanwal922@gmail.com · +92 307 449 4175</div>
         </div>
       </div>
