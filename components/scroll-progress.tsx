@@ -5,7 +5,7 @@ import { gsap, ScrollTrigger } from "@/lib/gsap"
 
 /**
  * A thin vertical bar on the right side of the screen that tracks
- * scroll progress using scaleY (GPU composited — zero layout cost).
+ * scroll progress using scaleY (GPU composited, zero layout cost).
  */
 export function ScrollProgress() {
   const barRef = useRef<HTMLDivElement>(null)
@@ -21,7 +21,7 @@ export function ScrollProgress() {
       end: "bottom bottom",
       scrub: 0.3,
       onUpdate: (self) => {
-        // Direct style mutation — no React re-render, stays 60fps
+        // Direct style mutation, no React re-render, stays 60fps
         bar.style.transform = `scaleY(${self.progress})`
       },
     })

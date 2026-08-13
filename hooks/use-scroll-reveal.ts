@@ -21,7 +21,7 @@ export interface ScrollRevealOptions {
 }
 
 /**
- * useScrollReveal — attach to a container ref.
+ * useScrollReveal, attach to a container ref.
  *
  * Targets either [data-reveal] children inside the container, or a custom
  * selector, or the container itself. All GSAP contexts are cleaned up on
@@ -55,7 +55,7 @@ export function useScrollReveal<T extends HTMLElement>(
       repeat     = false,
     } = options
 
-    // Resolve targets — prefer children with data-reveal, else the container
+    // Resolve targets, prefer children with data-reveal, else the container
     const children = el.querySelectorAll<HTMLElement>(selector)
     const targets: Element[] = children.length > 0 ? Array.from(children) : [el]
 
@@ -90,7 +90,7 @@ export function useScrollReveal<T extends HTMLElement>(
 }
 
 /**
- * useParallax — attach to an image wrapper.
+ * useParallax, attach to an image wrapper.
  * The image shifts vertically as the wrapper scrolls through the viewport.
  *
  * Usage:

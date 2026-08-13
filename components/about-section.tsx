@@ -2,7 +2,7 @@ import { CheckCircle2, Code2, Cpu, Globe2 } from "lucide-react"
 import Image from "next/image"
 
 const milestones = [
-  { icon: Code2, year: "2018", label: "Started with Java — desktop apps and socket programming" },
+  { icon: Code2, year: "2018", label: "Started with Java, desktop apps and socket programming" },
   { icon: Cpu, year: "2020", label: "Moved to Android, then specialized deeply in Flutter" },
   { icon: Globe2, year: "2021", label: "Built enterprise systems for UK-based SaaS company" },
   { icon: CheckCircle2, year: "2023", label: "Co-founded DevelopersTech, serving global clients" },
@@ -34,7 +34,7 @@ export function AboutSection() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          {/* Left — Story */}
+          {/* Left, Story */}
           <div>
             <div className="flex items-center gap-3 mb-6">
               <Image
@@ -64,7 +64,7 @@ export function AboutSection() {
               </p>
               <p>
                 Today, through DevelopersTech, I work with startups and businesses to build the software that
-                powers their operations — from the first line of code to production at scale.
+                powers their operations, from the first line of code to production at scale.
               </p>
             </div>
 
@@ -87,7 +87,7 @@ export function AboutSection() {
             </div>
           </div>
 
-          {/* Right — Values */}
+          {/* Right, Values */}
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-foreground mb-6">How We Work</h3>
             {values.map((v) => (

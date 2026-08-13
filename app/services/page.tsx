@@ -3,8 +3,8 @@ import Link from "next/link"
 import { ArrowRight, Smartphone, Globe, Bot, Building2, Car, ShieldCheck, Search, TrendingUp, Zap, Database, Palette, Plug } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Services — Flutter, AI, Web & Enterprise Development",
-  description: "Complete software development services from DevelopersTech — Flutter mobile apps, AI integration, enterprise SaaS, taxi dispatch software, SEO, and B2B lead generation.",
+  title: "Services, Flutter, AI, Web & Enterprise Development",
+  description: "Complete software development services from DevelopersTech, Flutter mobile apps, AI integration, enterprise SaaS, taxi dispatch software, SEO, and B2B lead generation.",
 }
 
 const WA = "https://wa.me/923074494175?text=Hi%20Sanwal!%20I%27d%20like%20to%20discuss%20a%20service%20from%20DevelopersTech."
@@ -17,7 +17,7 @@ const CATEGORIES = [
     services: [
       { n:"Flutter Development", d:"Cross-platform apps for Android, iOS, Web & Desktop from a single codebase. 5+ years of production experience." },
       { n:"Android Development", d:"Native Android with Material Design, Jetpack, and full device-hardware integration." },
-      { n:"iOS Development",     d:"Swift development for iPhone and iPad — performance-optimized, App Store ready." },
+      { n:"iOS Development",     d:"Swift development for iPhone and iPad, performance-optimized, App Store ready." },
       { n:"Cross-Platform Apps", d:"One codebase, four platforms. Maximum reach, minimum maintenance overhead." },
     ]
   },
@@ -37,7 +37,7 @@ const CATEGORIES = [
     color: "#7B5EA7",
     icon: Bot,
     services: [
-      { n:"AI Applications",      d:"Production AI apps using OpenAI, Claude, and Gemini APIs — beyond simple chatbots." },
+      { n:"AI Applications",      d:"Production AI apps using OpenAI, Claude, and Gemini APIs, beyond simple chatbots." },
       { n:"AI Chatbots",          d:"Customer-facing and internal AI assistants built for accuracy, context, and tone." },
       { n:"Business Automation",  d:"Automate workflows, data pipelines, reports, and internal processes." },
       { n:"API Development",      d:"REST and GraphQL APIs, third-party integrations, webhooks, and microservices." },
@@ -76,7 +76,7 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto relative z-10">
           <span className="dt-badge">Services</span>
           <h1 className="section-title mt-4 mb-3 max-w-3xl">Everything Your Product Needs,<br /><span className="gradient-text">Under One Roof</span></h1>
-          <p className="section-sub mb-8">From mobile to enterprise — one team, full ownership, every layer of your product.</p>
+          <p className="section-sub mb-8">From mobile to enterprise, one team, full ownership, every layer of your product.</p>
           <a href={WA} target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2.5 text-[13px] font-bold text-white bg-primary rounded-xl btn-primary-glow hover:bg-primary/90 transition-all">
             Discuss Your Project <ArrowRight size={14} />
@@ -116,7 +116,7 @@ export default function ServicesPage() {
       <section className="section-pad bg-card/20">
         <div className="max-w-2xl mx-auto text-center px-4">
           <h2 className="section-title mb-4">Not Sure What You Need?</h2>
-          <p className="section-sub mx-auto mb-8">Book a free discovery call. We'll help you figure out the right approach, tech stack, and timeline — no jargon, no pressure.</p>
+          <p className="section-sub mx-auto mb-8">Book a free discovery call. We'll help you figure out the right approach, tech stack, and timeline, no jargon, no pressure.</p>
           <a href={WA} target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 text-[14px] font-bold text-white bg-primary rounded-xl btn-primary-glow hover:bg-primary/90 transition-all">
             Book a Free Call <ArrowRight size={14} />

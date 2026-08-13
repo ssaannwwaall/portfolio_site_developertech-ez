@@ -34,7 +34,7 @@ export function CustomCursor() {
     }
     window.addEventListener("mousemove", onMove)
 
-    // RAF loop — 60fps smooth trailing
+    // RAF loop, 60fps smooth trailing
     const tick = () => {
       // Dot: zero-lag
       dot.style.transform  = `translate(${mouseX}px, ${mouseY}px)`
@@ -139,7 +139,7 @@ export function CustomCursor() {
 
   return (
     <>
-      {/* Solid dot — zero lag */}
+      {/* Solid dot, zero lag */}
       <div ref={dotRef} aria-hidden style={{
         position:"fixed", top:0, left:0, zIndex:99999, pointerEvents:"none",
         width:7, height:7, borderRadius:"50%",

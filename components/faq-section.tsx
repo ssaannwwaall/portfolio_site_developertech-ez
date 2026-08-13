@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     q: "Do you build minimum viable products (MVPs) for startups?",
-    a: "Yes — in fact we enjoy it. We help founders define scope, prioritise ruthlessly, and ship a testable product quickly. We've helped several early-stage founders go from idea to app store in under 3 months.",
+    a: "Yes, in fact we enjoy it. We help founders define scope, prioritise ruthlessly, and ship a testable product quickly. We've helped several early-stage founders go from idea to app store in under 3 months.",
   },
   {
     q: "What does your development process look like?",
@@ -30,7 +30,7 @@ const faqs = [
   },
   {
     q: "How are projects priced?",
-    a: "We offer fixed-price project agreements for well-defined scopes, and time-and-materials for ongoing development. We always provide a detailed breakdown upfront — no surprises. Book a free consultation and we'll give you an honest estimate.",
+    a: "We offer fixed-price project agreements for well-defined scopes, and time-and-materials for ongoing development. We always provide a detailed breakdown upfront, no surprises. Book a free consultation and we'll give you an honest estimate.",
   },
   {
     q: "Do you provide post-launch support and maintenance?",
@@ -38,11 +38,11 @@ const faqs = [
   },
   {
     q: "Can you also help with SEO and getting my site to rank on Google?",
-    a: "Yes — we offer Technical SEO, On-page SEO, Local SEO, Google Business Profile management, and B2B lead generation services. We've helped software companies and businesses improve their organic visibility significantly.",
+    a: "Yes, we offer Technical SEO, On-page SEO, Local SEO, Google Business Profile management, and B2B lead generation services. We've helped software companies and businesses improve their organic visibility significantly.",
   },
   {
     q: "What's the best way to get started?",
-    a: "The easiest first step is a free 30-minute consultation — no commitment required. Just hit 'Book a Call' and we'll discuss your project, timeline, and budget to see if we're a good fit.",
+    a: "The easiest first step is a free 30-minute consultation, no commitment required. Just hit 'Book a Call' and we'll discuss your project, timeline, and budget to see if we're a good fit.",
   },
 ]
 

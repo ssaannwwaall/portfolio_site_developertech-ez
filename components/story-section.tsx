@@ -7,7 +7,7 @@ import { gsap, ScrollTrigger } from "@/lib/gsap"
 const BEATS = [
   {
     n: 1, step: "Step 01", keyword: "I Listen",
-    sub: "Every great product starts with understanding. I dig deep into your goals, constraints, and the problem you're really solving — before writing a single line of code.",
+    sub: "Every great product starts with understanding. I dig deep into your goals, constraints, and the problem you're really solving, before writing a single line of code.",
     color: "#5184A3", accent: "#7BB3D4", icon: "📥",
   },
   {
@@ -17,12 +17,12 @@ const BEATS = [
   },
   {
     n: 3, step: "Step 03", keyword: "I Build",
-    sub: "Clean, documented, production-ready code. Flutter, Next.js, Node.js — the right tool for each layer. QA is built in throughout, not bolted on at the end.",
+    sub: "Clean, documented, production-ready code. Flutter, Next.js, Node.js, the right tool for each layer. QA is built in throughout, not bolted on at the end.",
     color: "#3A9B6E", accent: "#5FBD94", icon: "⚙️",
   },
   {
     n: 4, step: "Step 04", keyword: "I Deliver",
-    sub: "On time, on scope, full handoff. Source code, docs, and 30-day post-launch support. You own everything — no lock-in, no surprises on the invoice.",
+    sub: "On time, on scope, full handoff. Source code, docs, and 30-day post-launch support. You own everything, no lock-in, no surprises on the invoice.",
     color: "#22C55E", accent: "#4ADE80", icon: "🚀",
   },
 ]
@@ -119,7 +119,7 @@ function DevScene({ activeRef }: { activeRef: React.RefObject<number> }) {
       <circle cx="67" cy="36" r="5" fill="#28C840" />
       {/* Tab text */}
       <text x="90" y="40" fontSize="9" fill="#617585" fontFamily="monospace">
-        DevelopersTech — workspace
+        DevelopersTech, workspace
       </text>
 
       {/* Screen area */}
@@ -132,7 +132,7 @@ function DevScene({ activeRef }: { activeRef: React.RefObject<number> }) {
           fill="#2A3C4F" fontFamily="monospace">{n}</text>
       ))}
 
-      {/* Code lines — rendered per beat */}
+      {/* Code lines, rendered per beat */}
       {BEATS.map((beat, bi) => (
         <g key={beat.n} id={`code-beat-${beat.n}`}
           opacity={bi === 0 ? 1 : 0}>
@@ -183,7 +183,7 @@ function DevScene({ activeRef }: { activeRef: React.RefObject<number> }) {
         </g>
         {/* Fiverr-style star rating */}
         <text x="448" y="148" fontSize="8" fill="#FEBC2E">★★★★★</text>
-        <text x="448" y="160" fontSize="7" fill="#617585" fontFamily="sans-serif">5.0 — 59 reviews</text>
+        <text x="448" y="160" fontSize="7" fill="#617585" fontFamily="sans-serif">5.0, 59 reviews</text>
       </g>
 
       {/* ── Beat 2 side panel: architecture diagram ── */}
@@ -434,7 +434,7 @@ export function StorySection() {
         }} />
       </div>
 
-      {/* Pinned section — 100vh, stays put while scroll drives the scrub */}
+      {/* Pinned section, 100vh, stays put while scroll drives the scrub */}
       <section style={{
         height: "100vh", display: "grid",
         gridTemplateColumns: "1fr 1fr",
@@ -469,7 +469,7 @@ export function StorySection() {
             The Process
           </div>
 
-          {/* Stacked text blocks — GSAP moves these */}
+          {/* Stacked text blocks, GSAP moves these */}
           <div style={{ position: "relative", minHeight: 280 }}>
             {BEATS.map((beat, i) => (
               <div
@@ -551,7 +551,7 @@ export function StorySection() {
             pointerEvents: "none",
           }} />
 
-          {/* Scroll hint (fades as user scrolls — handled by GSAP progress) */}
+          {/* Scroll hint (fades as user scrolls, handled by GSAP progress) */}
           <div style={{
             position: "absolute", bottom: 24, left: "50%",
             transform: "translateX(-50%)",

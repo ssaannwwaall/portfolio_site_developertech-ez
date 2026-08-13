@@ -73,7 +73,7 @@ export default function SoftpatrolProject() {
           <div className="mb-12">
             <h2 className="text-2xl font-bold mb-4">Project Overview</h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              Introducing 'Softpatrol' – a cutting-edge guard tracking app that redefines security management. This
+              Introducing 'Softpatrol', a cutting-edge guard tracking app that redefines security management. This
               comprehensive project enhances the efficiency and precision of security patrols by leveraging advanced
               mobile technology and real-time GPS tracking capabilities.
             </p>

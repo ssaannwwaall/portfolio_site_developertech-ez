@@ -18,7 +18,7 @@ const services = [
     icon: Smartphone,
     title: "Mobile App Development",
     description:
-      "Cross-platform Flutter applications for Android and iOS. From consumer apps to enterprise mobility solutions — built to perform and built to scale.",
+      "Cross-platform Flutter applications for Android and iOS. From consumer apps to enterprise mobility solutions, built to perform and built to scale.",
     tags: ["Flutter", "Android", "iOS"],
   },
   {
@@ -74,7 +74,7 @@ const services = [
     icon: Search,
     title: "SEO & Technical SEO",
     description:
-      "Full-spectrum SEO services — technical audits, on-page optimization, local SEO, Google Business management, and organic growth strategies.",
+      "Full-spectrum SEO services, technical audits, on-page optimization, local SEO, Google Business management, and organic growth strategies.",
     tags: ["Technical SEO", "Local SEO", "Google"],
   },
   {
@@ -113,7 +113,7 @@ export function ServicesSection() {
             End-to-End Software Services
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            From idea to deployment — we cover every layer of your product. One team, full ownership.
+            From idea to deployment, we cover every layer of your product. One team, full ownership.
           </p>
         </div>
 

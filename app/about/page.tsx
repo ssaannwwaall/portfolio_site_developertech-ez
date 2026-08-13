@@ -11,16 +11,16 @@ export const metadata: Metadata = {
 const WA = "https://wa.me/923074494175?text=Hi%20Sanwal!%20I%20read%20about%20DevelopersTech%20and%20I%27d%20like%20to%20discuss%20a%20project."
 
 const TIMELINE = [
-  { icon: Code2,     year: "2018", title: "Started with Java", body: "Built desktop applications, socket-based systems, and learned software architecture and backend development — a foundation that still informs how I design systems today." },
-  { icon: Cpu,       year: "2020", title: "Android & Flutter", body: "Moved into Android development, then specialized in Flutter. Joined TheMovers as a Java developer and was promoted to Project Manager after successfully migrating their native apps to Flutter — reducing maintenance costs by 40%." },
-  { icon: Building2, year: "2021", title: "UK Enterprise Software", body: "Joined a UK-based SaaS company building commercial enterprise software: taxi dispatch systems, guard monitoring platforms, business management tools — software used daily by transport and security companies." },
-  { icon: Globe2,    year: "2023", title: "Co-Founded DevelopersTech", body: "Founded DevelopersTech to provide premium software engineering services globally — bringing enterprise standards to startups, SMBs, and ambitious product teams worldwide." },
+  { icon: Code2,     year: "2018", title: "Started with Java", body: "Built desktop applications, socket-based systems, and learned software architecture and backend development, a foundation that still informs how I design systems today." },
+  { icon: Cpu,       year: "2020", title: "Android & Flutter", body: "Moved into Android development, then specialized in Flutter. Joined TheMovers as a Java developer and was promoted to Project Manager after successfully migrating their native apps to Flutter, reducing maintenance costs by 40%." },
+  { icon: Building2, year: "2021", title: "UK Enterprise Software", body: "Joined a UK-based SaaS company building commercial enterprise software: taxi dispatch systems, guard monitoring platforms, business management tools, software used daily by transport and security companies." },
+  { icon: Globe2,    year: "2023", title: "Co-Founded DevelopersTech", body: "Founded DevelopersTech to provide premium software engineering services globally, bringing enterprise standards to startups, SMBs, and ambitious product teams worldwide." },
 ]
 
 const VALUES = [
   { t: "Engineering first",      d: "We architect for scale, not just for the deadline. Code quality is non-negotiable." },
   { t: "Full ownership",         d: "One team from requirement to release. No handoffs, no gaps, no excuses." },
-  { t: "Honest communication",   d: "We tell you what's possible, what's not, and why — before it becomes a problem." },
+  { t: "Honest communication",   d: "We tell you what's possible, what's not, and why, before it becomes a problem." },
   { t: "Outcome-focused",        d: "We care what your software achieves, not just that it ships." },
 ]
 
@@ -70,10 +70,10 @@ export default function AboutPage() {
               </div>
 
               <div className="space-y-4 text-[14px] text-muted-foreground leading-[1.85] mb-8">
-                <p>I started my engineering career building Java desktop applications and socket-based communication systems — which gave me a strong foundation in architecture and backend development long before mobile was on my radar.</p>
-                <p>That foundation led me into Android development, and eventually Flutter, where I found the intersection of performance, cross-platform reach, and rapid iteration. Over five years, I've shipped commercial software for transportation companies, security operations, enterprise management platforms, and consumer apps — across four platforms.</p>
-                <p>I worked at a UK-based enterprise software company building taxi dispatch systems and guard monitoring platforms that are actively used by businesses across the UK. That experience gave me a real understanding of what it means to build software that has to work — not just look good in a demo.</p>
-                <p>Today, through DevelopersTech, I work with startups and established businesses to build the software that powers their operations — from the first line of code to production at scale.</p>
+                <p>I started my engineering career building Java desktop applications and socket-based communication systems, which gave me a strong foundation in architecture and backend development long before mobile was on my radar.</p>
+                <p>That foundation led me into Android development, and eventually Flutter, where I found the intersection of performance, cross-platform reach, and rapid iteration. Over five years, I've shipped commercial software for transportation companies, security operations, enterprise management platforms, and consumer apps, across four platforms.</p>
+                <p>I worked at a UK-based enterprise software company building taxi dispatch systems and guard monitoring platforms that are actively used by businesses across the UK. That experience gave me a real understanding of what it means to build software that has to work, not just look good in a demo.</p>
+                <p>Today, through DevelopersTech, I work with startups and established businesses to build the software that powers their operations, from the first line of code to production at scale.</p>
               </div>
 
               {/* Skills */}
@@ -148,7 +148,7 @@ export default function AboutPage() {
       <section className="section-pad">
         <div className="max-w-2xl mx-auto text-center px-4">
           <h2 className="section-title mb-4">Ready to Build Something?</h2>
-          <p className="section-sub mx-auto mb-8">Free 30-minute discovery call. No commitment, no hard sell — just an honest conversation about your project.</p>
+          <p className="section-sub mx-auto mb-8">Free 30-minute discovery call. No commitment, no hard sell, just an honest conversation about your project.</p>
           <div className="flex flex-wrap gap-3 justify-center">
             <a href={WA} target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 text-[14px] font-bold text-white bg-primary rounded-xl btn-primary-glow hover:bg-primary/90 transition-all">

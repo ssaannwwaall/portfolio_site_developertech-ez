@@ -16,7 +16,7 @@ const STATS = [
 ]
 
 /**
- * Simple text splitter — wraps every word in an overflow:hidden shell
+ * Simple text splitter, wraps every word in an overflow:hidden shell
  * so we can translateY each word up from underneath the mask.
  * No premium GSAP SplitText needed.
  */
@@ -33,7 +33,7 @@ function MaskText({
 }) {
   const words = text.split(" ")
   return (
-    // @ts-ignore — generic tag
+    // @ts-ignore, generic tag
     <Tag className={className} data-mask={dataMask} aria-label={text}>
       {words.map((word, wi) => (
         <span
@@ -75,7 +75,7 @@ export function HeroSection() {
       const stats    = statsRef.current
       const badge    = badgeRef.current
 
-      // Set initial states — hidden below their mask wrappers
+      // Set initial states, hidden below their mask wrappers
       gsap.set(words,   { yPercent: 110 })
       gsap.set([subtext, cta, stats, badge], { opacity: 0, y: 28 })
 
@@ -109,7 +109,7 @@ export function HeroSection() {
         start:   "top top",
         end:     "+=60%",           // pin for 60vh of scroll
         pin:     true,
-        pinSpacing: false,           // don't push content down — overlap effect
+        pinSpacing: false,           // don't push content down, overlap effect
         scrub:   1,
         onUpdate(self) {
           // Hero content: scale down + fade out as user scrolls away
@@ -146,7 +146,7 @@ export function HeroSection() {
       <div className="orb-2" />
       <div className="absolute top-0 inset-x-0 gradient-line" />
 
-      {/* Content wrapper — this is what scales + fades on scroll */}
+      {/* Content wrapper, this is what scales + fades on scroll */}
       <div ref={contentRef} className="relative z-10 max-w-7xl mx-auto w-full"
         style={{ willChange: "transform, opacity" }}>
         <div style={{ maxWidth: 800 }}>
@@ -201,7 +201,7 @@ export function HeroSection() {
             }}
           >
             DevelopersTech builds enterprise-grade Flutter apps, AI-powered platforms,
-            and SaaS products for companies that need to move fast — and get it right the first time.
+            and SaaS products for companies that need to move fast, and get it right the first time.
           </p>
 
           {/* CTAs */}

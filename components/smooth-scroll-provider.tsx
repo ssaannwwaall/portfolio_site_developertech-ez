@@ -16,7 +16,7 @@ export function SmoothScrollProvider({ children }: Props) {
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.15,
-      // Custom easing — exponential feel, snappy start, soft end
+      // Custom easing, exponential feel, snappy start, soft end
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
       wheelMultiplier: 0.9,

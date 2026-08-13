@@ -3,8 +3,8 @@ import Link from "next/link"
 import { ExternalLink, ArrowRight, Play } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Portfolio — Projects & Case Studies",
-  description: "Real projects delivered by DevelopersTech — Flutter apps, AI platforms, taxi dispatch systems, guard monitoring software, and web applications.",
+  title: "Portfolio, Projects & Case Studies",
+  description: "Real projects delivered by DevelopersTech, Flutter apps, AI platforms, taxi dispatch systems, guard monitoring software, and web applications.",
 }
 
 const WA_BASE = "https://wa.me/923074494175?text="
@@ -36,7 +36,7 @@ const PROJECTS = [
       caseStudy: null,
       playStore: null,
     },
-    highlight: "Enterprise Client — UK"
+    highlight: "Enterprise Client, UK"
   },
   {
     id: "jamgo-cee",
@@ -122,7 +122,7 @@ export default function PortfolioPage() {
             <span className="gradient-text">for Real Businesses</span>
           </h1>
           <p className="section-sub">
-            Production software — not demos. Every project here is deployed and actively used by real clients.
+            Production software, not demos. Every project here is deployed and actively used by real clients.
           </p>
         </div>
       </section>

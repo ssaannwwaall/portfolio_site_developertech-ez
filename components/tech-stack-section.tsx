@@ -30,7 +30,7 @@ const techCategories = [
 ]
 
 const highlights = [
-  { label: "Flutter", note: "Primary mobile framework — 5+ years" },
+  { label: "Flutter", note: "Primary mobile framework, 5+ years" },
   { label: "Firebase", note: "Real-time DB, Auth, Push, Functions" },
   { label: "Java / Spring Boot", note: "Backend systems & enterprise APIs" },
   { label: "OpenAI & Claude APIs", note: "AI product development" },
@@ -52,7 +52,7 @@ export function TechStackSection() {
             <span className="gradient-text">Right Tools</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            We choose technologies based on what's right for the product — not what's trendy. Here's our core stack.
+            We choose technologies based on what's right for the product, not what's trendy. Here's our core stack.
           </p>
         </div>
 

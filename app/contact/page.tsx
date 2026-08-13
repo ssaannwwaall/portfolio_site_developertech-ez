@@ -6,7 +6,7 @@ import { ArrowRight, MessageSquare, Mail, Phone, MapPin, Clock } from "lucide-re
 const WA_BASE = "https://wa.me/923074494175?text="
 
 const METHODS = [
-  { Icon: MessageSquare, label: "WhatsApp",    val: "+92 307 449 4175",        note: "Fastest — usually under 2 hrs",         color: "#22C55E", href: `${WA_BASE}${encodeURIComponent("Hi Sanwal! I'd like to discuss a project with DevelopersTech.")}` },
+  { Icon: MessageSquare, label: "WhatsApp",    val: "+92 307 449 4175",        note: "Fastest, usually under 2 hrs",         color: "#22C55E", href: `${WA_BASE}${encodeURIComponent("Hi Sanwal! I'd like to discuss a project with DevelopersTech.")}` },
   { Icon: Mail,          label: "Email",        val: "khansanwal922@gmail.com", note: "For detailed briefs and proposals",      color: "#5184A3", href: "mailto:khansanwal922@gmail.com?subject=Project%20Enquiry%20%E2%80%94%20DevelopersTech" },
   { Icon: Phone,         label: "Phone",        val: "+92 307 449 4175",        note: "Available for calls by appointment",     color: "#7B5EA7", href: "tel:+923074494175" },
   { Icon: MapPin,        label: "Location",     val: "Lahore, Pakistan",         note: "Serving clients in UK, UAE, US & EU",   color: "#D97706", href: "#" },
@@ -31,7 +31,7 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto relative z-10">
           <span className="dt-badge">Contact</span>
           <h1 className="section-title mt-4 mb-3">Let's Build Something<br /><span className="gradient-text">That Matters</span></h1>
-          <p className="section-sub">Tell us about your project — we'll respond with a plan, not a pitch.</p>
+          <p className="section-sub">Tell us about your project, we'll respond with a plan, not a pitch.</p>
         </div>
       </section>
 
@@ -64,7 +64,7 @@ export default function ContactPage() {
                 <span className="text-[12px] font-bold text-primary">Currently Available</span>
               </div>
               <p className="text-[13px] text-muted-foreground leading-[1.75]">
-                Accepting new projects for Q3 2025. Free 30-minute discovery call — no commitment, no hard sell.
+                Accepting new projects for Q3 2025. Free 30-minute discovery call, no commitment, no hard sell.
                 Just an honest conversation about your product and whether we're the right fit.
               </p>
             </div>
@@ -95,9 +95,9 @@ export default function ContactPage() {
                     className="w-full px-4 py-3 bg-background border border-border rounded-xl text-[13px] text-foreground focus:outline-none focus:border-primary/50 transition-colors">
                     <option value="">Select range</option>
                     <option>Under $2,000</option>
-                    <option>$2,000 – $5,000</option>
-                    <option>$5,000 – $15,000</option>
-                    <option>$15,000 – $50,000</option>
+                    <option>$2,000, $5,000</option>
+                    <option>$5,000, $15,000</option>
+                    <option>$15,000, $50,000</option>
                     <option>$50,000+</option>
                     <option>Let's discuss</option>
                   </select>
@@ -129,7 +129,7 @@ export default function ContactPage() {
                 className="w-full inline-flex items-center justify-center gap-2 py-3.5 text-[14px] font-bold text-white bg-primary rounded-xl btn-primary-glow hover:bg-primary/90 transition-all">
                 Send via WhatsApp <ArrowRight size={15} />
               </button>
-              <p className="text-[11px] text-muted-foreground text-center">We respond to every enquiry — usually within 2 hours.</p>
+              <p className="text-[11px] text-muted-foreground text-center">We respond to every enquiry, usually within 2 hours.</p>
             </form>
           </div>
         </div>

@@ -69,11 +69,11 @@ export function ProjectsSection() {
           <span className="dt-badge">Case Studies</span>
           <h2 className="section-title mt-4 mb-3">Products We've Shipped</h2>
           <p className="section-sub mx-auto">
-            Production software — not demos. Every project here is deployed and actively used by real businesses.
+            Production software, not demos. Every project here is deployed and actively used by real businesses.
           </p>
         </div>
 
-        {/* Grid — 1 col mobile, 2 col tablet, 3 col desktop */}
+        {/* Grid, 1 col mobile, 2 col tablet, 3 col desktop */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 px-4">
           {PROJECTS.map((p) => {
             const waMsg = encodeURIComponent(`Hi Sanwal! I saw the ${p.title} project on DevelopersTech and I'd like to build something similar.`)

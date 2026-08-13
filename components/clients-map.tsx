@@ -10,7 +10,7 @@ const FIVERR  = "https://www.fiverr.com/sanwalkhan842"
 // ISO-3166 numeric country codes to highlight
 const HIGHLIGHT_IDS = new Set(["586","826","840","784","276","356"])
 
-// All real clients — Pakistan is HQ, rest are verified clients
+// All real clients, Pakistan is HQ, rest are verified clients
 const CLIENTS = [
   {
     id: "pk",
@@ -22,7 +22,7 @@ const CLIENTS = [
     coords: [74.35, 31.52] as [number, number],
     color: "#5184A3",
     rating: 5,
-    review: "DevelopersTech is based in Lahore, Pakistan. Founded by Sanwal Khan — serving clients in UK, UAE, Europe, and the US. 5+ years of enterprise-grade software engineering.",
+    review: "DevelopersTech is based in Lahore, Pakistan. Founded by Sanwal Khan, serving clients in UK, UAE, Europe, and the US. 5+ years of enterprise-grade software engineering.",
     project: "Company HQ",
     isHQ: true,
   },
@@ -50,7 +50,7 @@ const CLIENTS = [
     coords: [-2.8, 54.5] as [number, number],
     color: "#7BB3D4",
     rating: 5,
-    review: "Sanwal delivered our Flutter app ahead of schedule. The real-time tracking worked flawlessly on launch day — something our previous vendor failed to achieve in six months.",
+    review: "Sanwal delivered our Flutter app ahead of schedule. The real-time tracking worked flawlessly on launch day, something our previous vendor failed to achieve in six months.",
     project: "TBMS Taxi Dispatch System",
     source: "Direct Client",
   },
@@ -120,7 +120,7 @@ const CLIENTS = [
     coords: [78.9, 20.6] as [number, number],
     color: "#F97316",
     rating: 5,
-    review: "The AI chatbot integration Sanwal built for our platform increased user engagement significantly. He knew exactly how to work with the OpenAI APIs — production-ready from day one.",
+    review: "The AI chatbot integration Sanwal built for our platform increased user engagement significantly. He knew exactly how to work with the OpenAI APIs, production-ready from day one.",
     project: "AI Chatbot Platform",
     source: "Direct Client",
   },
@@ -151,7 +151,7 @@ export function ClientsMap() {
             Clients From Around the World
           </h2>
           <p className="section-sub mx-auto mb-5">
-            DevelopersTech has delivered verified projects for clients across 6 countries. Based in Lahore — serving globally.
+            DevelopersTech has delivered verified projects for clients across 6 countries. Based in Lahore, serving globally.
           </p>
           <a href={FIVERR} target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-[13px] font-bold text-white"

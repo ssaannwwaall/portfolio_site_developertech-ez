@@ -12,7 +12,7 @@ const contactMethods = [
     icon: MessageSquare,
     label: "WhatsApp",
     value: "+92 307 449 4175",
-    description: "Fastest response — usually within an hour",
+    description: "Fastest response, usually within an hour",
     action: () => {
       const msg = "Hi Sanwal! I'd like to discuss a project with DevelopersTech."
       window.open(`https://wa.me/923074494175?text=${encodeURIComponent(msg)}`, "_blank")
@@ -25,7 +25,7 @@ const contactMethods = [
     value: "khansanwal922@gmail.com",
     description: "For detailed briefs and formal enquiries",
     action: () => {
-      window.location.href = "mailto:khansanwal922@gmail.com?subject=Project Enquiry — DevelopersTech"
+      window.location.href = "mailto:khansanwal922@gmail.com?subject=Project Enquiry, DevelopersTech"
     },
     accent: "#3b82f6",
   },
@@ -41,7 +41,7 @@ const contactMethods = [
     icon: MapPin,
     label: "Location",
     value: "Lahore, Pakistan",
-    description: "Serving clients globally — remote-first team",
+    description: "Serving clients globally, remote-first team",
     action: () => {},
     accent: "#f97316",
   },
@@ -106,7 +106,7 @@ export function ContactSection() {
             <div className="p-5 bg-primary/5 border border-primary/15 rounded-xl">
               <p className="text-sm text-muted-foreground">
                 <span className="font-semibold text-primary">Currently accepting new projects.</span>{" "}
-                Book a free 30-minute discovery call and we'll map out your project together — no pressure, no commitment.
+                Book a free 30-minute discovery call and we'll map out your project together, no pressure, no commitment.
               </p>
             </div>
           </div>
@@ -144,7 +144,7 @@ export function ContactSection() {
                 <label className="text-xs text-muted-foreground mb-1.5 block">Estimated Budget</label>
                 <Input
                   name="budget"
-                  placeholder="e.g. $5,000 – $15,000"
+                  placeholder="e.g. $5,000, $15,000"
                   value={form.budget}
                   onChange={(e) => setForm({ ...form, budget: e.target.value })}
                   className="bg-background border-border/60 focus:border-primary/50"
