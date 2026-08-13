@@ -1,151 +1,54 @@
-import {
-  Smartphone,
-  Globe,
-  Bot,
-  Building2,
-  Plug,
-  Palette,
-  TrendingUp,
-  Zap,
-  Database,
-  Car,
-  ShieldCheck,
-  Search,
-} from "lucide-react"
+"use client"
+import { MaskHeading, Rise } from "./mask-heading"
+import { SERVICES } from "./work-data"
 
-const services = [
-  {
-    icon: Smartphone,
-    title: "Mobile App Development",
-    description:
-      "Cross-platform Flutter applications for Android and iOS. From consumer apps to enterprise mobility solutions, built to perform and built to scale.",
-    tags: ["Flutter", "Android", "iOS"],
-  },
-  {
-    icon: Globe,
-    title: "Web Application Development",
-    description:
-      "Full-stack web platforms, admin dashboards, ERPs, CRMs, and SaaS products engineered for performance, security, and business impact.",
-    tags: ["Next.js", "Node.js", "React"],
-  },
-  {
-    icon: Bot,
-    title: "AI & Machine Learning Integration",
-    description:
-      "Intelligent applications powered by OpenAI, Claude, and Gemini APIs. Chatbots, automation agents, content engines, and AI workflows built for production.",
-    tags: ["OpenAI", "Claude API", "Gemini"],
-  },
-  {
-    icon: Building2,
-    title: "Enterprise & SaaS Development",
-    description:
-      "Enterprise-grade platforms with role-based access, multi-tenancy, analytics, and integrations. Software that powers operations at scale.",
-    tags: ["SaaS", "ERP", "CRM"],
-  },
-  {
-    icon: Plug,
-    title: "API Development & Integrations",
-    description:
-      "Robust REST and GraphQL APIs, third-party integrations, payment gateways, real-time systems, and microservices architecture.",
-    tags: ["REST", "GraphQL", "WebSockets"],
-  },
-  {
-    icon: Car,
-    title: "Taxi Dispatch & Booking Platforms",
-    description:
-      "Specialized transportation software including taxi dispatch systems, chauffeur booking apps, fleet management, and ride-booking platforms.",
-    tags: ["GPS Tracking", "Real-time", "Dispatch"],
-  },
-  {
-    icon: ShieldCheck,
-    title: "Security & Guard Monitoring Software",
-    description:
-      "Guard patrol management systems, incident logging, real-time GPS monitoring, and business security dashboards for enterprise operations.",
-    tags: ["GPS", "Real-time", "Security"],
-  },
-  {
-    icon: Palette,
-    title: "UI/UX Design",
-    description:
-      "Product design that converts. Wireframes, prototypes, design systems, and production-ready interfaces that users actually enjoy using.",
-    tags: ["Figma", "Design Systems", "Prototyping"],
-  },
-  {
-    icon: Search,
-    title: "SEO & Technical SEO",
-    description:
-      "Full-spectrum SEO services, technical audits, on-page optimization, local SEO, Google Business management, and organic growth strategies.",
-    tags: ["Technical SEO", "Local SEO", "Google"],
-  },
-  {
-    icon: TrendingUp,
-    title: "B2B Lead Generation",
-    description:
-      "LinkedIn outreach, email prospecting, and sales automation systems that build qualified pipelines for software companies and agencies.",
-    tags: ["LinkedIn", "Email Outreach", "Sales"],
-  },
-  {
-    icon: Zap,
-    title: "Business Process Automation",
-    description:
-      "Automate repetitive workflows, data pipelines, reporting systems, and internal tools. Save time, reduce costs, scale operations.",
-    tags: ["Automation", "Workflows", "Integrations"],
-  },
-  {
-    icon: Database,
-    title: "Backend & Database Architecture",
-    description:
-      "Scalable backend systems, cloud infrastructure setup, database design, and performance optimization for high-traffic applications.",
-    tags: ["PostgreSQL", "MongoDB", "AWS"],
-  },
-]
+const WA = "https://wa.me/923074494175?text=Hi%20Sanwal!%20I%27d%20like%20to%20discuss%20a%20project."
+
 
 export function ServicesSection() {
   return (
-    <section id="services" className="section-padding px-4">
-      <div className="container mx-auto max-w-7xl">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-white/3 text-xs text-muted-foreground font-medium mb-4">
-            What We Do
-          </div>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
-            End-to-End Software Services
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            From idea to deployment, we cover every layer of your product. One team, full ownership.
-          </p>
+    <section className="section" style={{ background: "var(--paper2)" }}>
+      <div className="wrap svc-grid">
+        <div className="svc-sticky">
+          <Rise><div className="eyebrow">What we do</div></Rise>
+          <MaskHeading text="Four disciplines, one team." />
+          <Rise delay={0.25}>
+            <p className="lede" style={{ margin: "22px 0 30px" }}>
+              We do not hand your project to a junior and disappear. The engineer you meet
+              in the first call is the one writing the code.
+            </p>
+            <a href={WA} target="_blank" rel="noopener noreferrer" className="btn btn-ghost mag">
+              Discuss your project <span className="arrow">→</span>
+            </a>
+          </Rise>
         </div>
-
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {services.map((service) => {
-            const Icon = service.icon
-            return (
-              <div
-                key={service.title}
-                className="glow-card gradient-border-card bg-card rounded-xl p-6 border border-border/60 group"
-              >
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/15 transition-colors">
-                  <Icon className="w-5 h-5 text-primary" />
-                </div>
-                <h3 className="font-semibold text-foreground mb-2">{service.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4">{service.description}</p>
-                <div className="flex flex-wrap gap-1.5">
-                  {service.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs px-2.5 py-1 rounded-full bg-white/5 border border-border/60 text-muted-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+        <div>
+          {SERVICES.map((s, i) => (
+            <Rise key={s.n} delay={i * 0.08}>
+              <div style={{ padding: "34px 0", borderBottom: "1px solid var(--line)", display: "flex", gap: 26 }}>
+                <span style={{ fontSize: 13, color: "var(--accent)", fontWeight: 500, paddingTop: 5, minWidth: 22 }}>{s.n}</span>
+                <div>
+                  <h3 style={{ fontSize: 22, fontWeight: 500, color: "var(--ink)", letterSpacing: "-.02em", marginBottom: 10 }}>{s.t}</h3>
+                  <p style={{ fontSize: 15, lineHeight: 1.72, color: "var(--body)", marginBottom: 15 }}>{s.d}</p>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                    {s.items.map(it => (
+                      <span key={it} style={{ fontSize: 12.5, color: "var(--body)", padding: "5px 13px", background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 100 }}>{it}</span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            )
-          })}
+            </Rise>
+          ))}
         </div>
       </div>
+      <style jsx>{`
+        .svc-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 70px; }
+        .svc-sticky { position: sticky; top: 120px; align-self: start; }
+        @media (max-width: 980px) {
+          .svc-grid { grid-template-columns: 1fr; gap: 40px; }
+          .svc-sticky { position: static; }
+        }
+      `}</style>
     </section>
   )
 }

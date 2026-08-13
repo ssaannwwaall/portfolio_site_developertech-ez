@@ -1,138 +1,59 @@
-import { CheckCircle2, Code2, Cpu, Globe2 } from "lucide-react"
+"use client"
 import Image from "next/image"
+import { MaskHeading, Rise } from "./mask-heading"
+import { useParallax } from "@/hooks/use-reveal"
 
-const milestones = [
-  { icon: Code2, year: "2018", label: "Started with Java, desktop apps and socket programming" },
-  { icon: Cpu, year: "2020", label: "Moved to Android, then specialized deeply in Flutter" },
-  { icon: Globe2, year: "2021", label: "Built enterprise systems for UK-based SaaS company" },
-  { icon: CheckCircle2, year: "2023", label: "Co-founded DevelopersTech, serving global clients" },
-]
-
-const values = [
-  { title: "Engineering first", description: "We build with architecture in mind, not just deadlines." },
-  { title: "Full ownership", description: "One team from requirement to release. No handoffs, no gaps." },
-  { title: "Honest communication", description: "Clear timelines, transparent pricing, no surprises." },
-  { title: "Business outcomes", description: "We care about what your software achieves, not just what it does." },
-]
+const TIMELINE = [["2018", "Java and backend"], ["2020", "Flutter specialist"], ["2021", "UK enterprise"], ["2023", "DevelopersTech"]]
 
 export function AboutSection() {
+  const par = useParallax<HTMLDivElement>(18)
   return (
-    <section id="about" className="section-padding px-4">
-      <div className="container mx-auto max-w-7xl">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-white/3 text-xs text-muted-foreground font-medium mb-4">
-            Who We Are
-          </div>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
-            Built by Engineers,<br className="hidden md:block" />{" "}
-            <span className="gradient-text">Run Like a Product Team</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            DevelopersTech is a software engineering company founded in Lahore, Pakistan, serving clients globally.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          {/* Left, Story */}
-          <div>
-            <div className="flex items-center gap-3 mb-6">
-              <Image
-                src="/images/company-logo.png"
-                alt="DevelopersTech"
-                width={48}
-                height={48}
-                className="object-contain"
-              />
-              <div>
-                <div className="font-bold text-foreground">Sanwal Khan</div>
-                <div className="text-sm text-muted-foreground">Managing Director & Co-Founder</div>
+    <section className="section">
+      <div className="wrap about-grid">
+        <Rise>
+          <div style={{ position: "relative" }}>
+            <div ref={par} data-view className="media" style={{ position: "relative", aspectRatio: "4/5", borderRadius: 3 }}>
+              <div data-parallax style={{ position: "absolute", inset: 0, willChange: "transform" }}>
+                <Image src="/tbms-tablet.webp" alt="DevelopersTech work" fill sizes="(max-width:900px) 100vw, 36vw" style={{ objectFit: "cover" }} />
               </div>
             </div>
-
-            <div className="space-y-4 text-muted-foreground leading-relaxed mb-8">
-              <p>
-                I started my engineering career building Java desktop applications and socket-based communication systems —
-                which gave me a strong foundation in software architecture and backend development long before
-                mobile was on my radar.
-              </p>
-              <p>
-                That foundation led me into Android development, and eventually into Flutter, where I found the
-                intersection of performance, speed, and real cross-platform reach. Over five years, I've shipped
-                products for transportation companies, security operations, enterprise management, and consumer apps
-                across four platforms.
-              </p>
-              <p>
-                Today, through DevelopersTech, I work with startups and businesses to build the software that
-                powers their operations, from the first line of code to production at scale.
-              </p>
-            </div>
-
-            {/* Journey timeline */}
-            <div className="space-y-4">
-              {milestones.map((m) => {
-                const Icon = m.icon
-                return (
-                  <div key={m.year} className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center mt-0.5">
-                      <Icon className="w-4 h-4 text-primary" />
-                    </div>
-                    <div>
-                      <span className="text-xs font-semibold text-primary">{m.year}</span>
-                      <p className="text-sm text-muted-foreground">{m.label}</p>
-                    </div>
-                  </div>
-                )
-              })}
+            <div className="founder-card">
+              <Image src="/images/company-logo.png" alt="" width={30} height={30} style={{ objectFit: "contain", marginBottom: 10 }} />
+              <div style={{ fontSize: 14.5, fontWeight: 500, color: "var(--ink)" }}>Sanwal Khan</div>
+              <div style={{ fontSize: 12, color: "var(--body)", marginTop: 2 }}>Managing Director</div>
             </div>
           </div>
-
-          {/* Right, Values */}
-          <div className="space-y-4">
-            <h3 className="text-xl font-semibold text-foreground mb-6">How We Work</h3>
-            {values.map((v) => (
-              <div
-                key={v.title}
-                className="glow-card bg-card border border-border/60 rounded-xl p-5 group"
-              >
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <div>
-                    <div className="font-semibold text-foreground mb-1">{v.title}</div>
-                    <div className="text-sm text-muted-foreground">{v.description}</div>
-                  </div>
+        </Rise>
+        <div>
+          <Rise><div className="eyebrow">The studio</div></Rise>
+          <MaskHeading text="Started with Java. Stayed for the craft." italic={3} />
+          <Rise delay={0.25}>
+            <div style={{ fontSize: 16.5, lineHeight: 1.82, color: "var(--body)", display: "flex", flexDirection: "column", gap: 17, margin: "26px 0 32px" }}>
+              <p>I began with Java desktop applications and socket programming. That grounding in architecture shapes how I approach every system I build today.</p>
+              <p>Android came next, then Flutter, then five years building commercial software for a UK enterprise client. Taxi dispatch. Guard monitoring. Systems that had to work, every day, for real operators.</p>
+            </div>
+            <div style={{ display: "flex", gap: 38, paddingTop: 26, borderTop: "1px solid var(--line)", flexWrap: "wrap" }}>
+              {TIMELINE.map(([y, t]) => (
+                <div key={y}>
+                  <div style={{ fontSize: 13, color: "var(--accent)", fontWeight: 500, marginBottom: 4 }}>{y}</div>
+                  <div style={{ fontSize: 13, color: "var(--body)" }}>{t}</div>
                 </div>
-              </div>
-            ))}
-
-            {/* Industries served */}
-            <div className="mt-8 p-5 bg-card border border-border/60 rounded-xl">
-              <h4 className="text-sm font-semibold text-foreground mb-3">Industries Served</h4>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  "Transportation & Dispatch",
-                  "Security Operations",
-                  "Enterprise SaaS",
-                  "FinTech",
-                  "Health & Wellness",
-                  "E-commerce",
-                  "Restaurant & Food",
-                  "Real Estate",
-                  "Logistics",
-                  "Government",
-                ].map((industry) => (
-                  <span
-                    key={industry}
-                    className="tech-badge text-xs"
-                  >
-                    {industry}
-                  </span>
-                ))}
-              </div>
+              ))}
             </div>
-          </div>
+          </Rise>
         </div>
       </div>
+      <style jsx>{`
+        .about-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 72px; align-items: center; }
+        .founder-card {
+          position: absolute; right: -28px; bottom: 36px; background: var(--paper);
+          padding: 20px 26px; box-shadow: 0 20px 60px rgba(14,27,38,.16); border: 1px solid var(--line);
+        }
+        @media (max-width: 980px) {
+          .about-grid { grid-template-columns: 1fr; gap: 44px; }
+          .founder-card { right: 16px; bottom: 16px; padding: 14px 18px; }
+        }
+      `}</style>
     </section>
   )
 }

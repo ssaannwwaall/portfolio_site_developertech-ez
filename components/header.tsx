@@ -3,88 +3,79 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
-import { Menu, X, ArrowRight } from "lucide-react"
+import { Menu, X } from "lucide-react"
 
 const NAV = [
-  { label: "Home",      href: "/" },
-  { label: "About",     href: "/about" },
-  { label: "Services",  href: "/services" },
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "Blog",      href: "/blog" },
-  { label: "Contact",   href: "/contact" },
+  { l: "Work", h: "/portfolio" },
+  { l: "Services", h: "/services" },
+  { l: "About", h: "/about" },
+  { l: "Contact", h: "/contact" },
 ]
-
-const WA = "https://wa.me/923074494175?text=Hi%20Sanwal!%20I%27d%20like%20to%20book%20a%20free%20consultation%20with%20DevelopersTech."
+const WA = "https://wa.me/923074494175?text=Hi%20Sanwal!%20I%27d%20like%20to%20start%20a%20project%20with%20DevelopersTech."
 
 export function Header() {
-  const [scrolled, setScrolled] = useState(false)
+  const [scr, setScr] = useState(false)
   const [open, setOpen] = useState(false)
-  const pathname = usePathname()
+  const path = usePathname()
 
   useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 24)
-    window.addEventListener("scroll", fn, { passive: true })
-    return () => window.removeEventListener("scroll", fn)
+    const f = () => setScr(window.scrollY > 40)
+    window.addEventListener("scroll", f, { passive: true })
+    return () => window.removeEventListener("scroll", f)
   }, [])
-
-  useEffect(() => { setOpen(false) }, [pathname])
+  useEffect(() => { setOpen(false) }, [path])
 
   return (
-    <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${scrolled ? "glass-header" : "bg-transparent"}`}>
-      <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center h-16 gap-6">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
-          <Image src="/images/company-logo.png" alt="DevelopersTech" width={32} height={32} className="object-contain" />
-          <span className="font-bold text-[17px] text-foreground">
-            Developers<span className="gradient-text">Tech</span>
+    <header style={{
+      position: "fixed", top: 0, left: 0, right: 0, zIndex: 700,
+      background: scr ? "rgba(251,250,248,.9)" : "transparent",
+      backdropFilter: scr ? "blur(20px) saturate(180%)" : "none",
+      WebkitBackdropFilter: scr ? "blur(20px) saturate(180%)" : "none",
+      borderBottom: `1px solid ${scr ? "var(--line)" : "transparent"}`,
+      transition: "all .45s cubic-bezier(.16,1,.3,1)",
+    }}>
+      <div className="wrap" style={{ height: 74, display: "flex", alignItems: "center" }}>
+        <Link href="/" style={{ display: "flex", alignItems: "center", gap: 11, marginRight: "auto", textDecoration: "none" }}>
+          <Image src="/images/company-logo.png" alt="DevelopersTech" width={34} height={34} style={{ objectFit: "contain" }} />
+          <span style={{ fontSize: 17, fontWeight: 600, color: "var(--ink)", letterSpacing: "-.02em" }}>
+            Developers<span style={{ color: "var(--accent)" }}>Tech</span>
           </span>
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-0.5 flex-1">
+        <nav className="hidden md:flex" style={{ gap: 4, marginRight: 26 }}>
           {NAV.map(n => (
-            <Link key={n.href} href={n.href}
-              className={`px-4 py-2 text-[13px] font-medium rounded-lg transition-colors ${
-                pathname === n.href
-                  ? "text-primary bg-primary/8"
-                  : "text-muted-foreground hover:text-foreground hover:bg-white/4"
-              }`}>
-              {n.label}
-            </Link>
+            <Link key={n.h} href={n.h} style={{
+              padding: "8px 18px", fontSize: 14, fontWeight: 500, textDecoration: "none",
+              color: path === n.h ? "var(--ink)" : "var(--body)",
+              borderBottom: `1px solid ${path === n.h ? "var(--accent)" : "transparent"}`,
+              transition: "all .3s",
+            }}>{n.l}</Link>
           ))}
         </nav>
 
-        {/* CTA */}
-        <a href={WA} target="_blank" rel="noopener noreferrer"
-          className="hidden md:flex items-center gap-1.5 px-4 py-2 text-[13px] font-semibold text-white bg-primary rounded-xl btn-primary-glow hover:bg-primary/90 transition-all ml-auto flex-shrink-0">
-          Book a Free Call <ArrowRight size={14} />
+        <a href={WA} target="_blank" rel="noopener noreferrer" className="btn btn-solid mag hidden md:inline-flex" style={{ padding: "12px 24px", fontSize: 13 }}>
+          Start a project <span className="arrow">→</span>
         </a>
 
-        {/* Hamburger */}
-        <button onClick={() => setOpen(!open)} className="md:hidden ml-auto p-2 rounded-lg hover:bg-white/5 transition-colors"
-          aria-label="Toggle menu">
-          {open ? <X size={20} /> : <Menu size={20} />}
+        <button onClick={() => setOpen(!open)} aria-label="Menu" className="md:hidden"
+          style={{ background: "none", border: "none", padding: 8, cursor: "pointer", color: "var(--ink)" }}>
+          {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
       {open && (
-        <div className="md:hidden mobile-menu">
-          <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
+        <div className="md:hidden" style={{ background: "var(--paper)", borderTop: "1px solid var(--line)" }}>
+          <div className="wrap" style={{ padding: "20px 24px", display: "flex", flexDirection: "column", gap: 4 }}>
             {NAV.map(n => (
-              <Link key={n.href} href={n.href}
-                className={`px-4 py-3 text-[14px] font-medium rounded-lg transition-colors ${
-                  pathname === n.href ? "text-primary bg-primary/8" : "text-muted-foreground hover:text-foreground hover:bg-white/4"
-                }`}>
-                {n.label}
-              </Link>
+              <Link key={n.h} href={n.h} style={{
+                padding: "14px 0", fontSize: 16, textDecoration: "none",
+                color: path === n.h ? "var(--accent)" : "var(--ink)",
+                borderBottom: "1px solid var(--line)",
+              }}>{n.l}</Link>
             ))}
-            <div className="pt-3 mt-2 border-t border-border">
-              <a href={WA} target="_blank" rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full px-4 py-3 text-[14px] font-semibold text-white bg-primary rounded-xl">
-                Book a Free Consultation <ArrowRight size={14} />
-              </a>
-            </div>
+            <a href={WA} target="_blank" rel="noopener noreferrer" className="btn btn-solid" style={{ marginTop: 16, justifyContent: "center" }}>
+              Start a project <span className="arrow">→</span>
+            </a>
           </div>
         </div>
       )}

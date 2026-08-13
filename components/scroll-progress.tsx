@@ -1,59 +1,21 @@
 "use client"
-
 import { useEffect, useRef } from "react"
-import { gsap, ScrollTrigger } from "@/lib/gsap"
 
-/**
- * A thin vertical bar on the right side of the screen that tracks
- * scroll progress using scaleY (GPU composited, zero layout cost).
- */
 export function ScrollProgress() {
-  const barRef = useRef<HTMLDivElement>(null)
-
+  const bar = useRef<HTMLDivElement>(null)
   useEffect(() => {
-    const bar = barRef.current
-    if (!bar) return
-
-    // scaleY from 0 → 1 as user scrolls document top → bottom
-    const st = ScrollTrigger.create({
-      trigger: document.documentElement,
-      start: "top top",
-      end: "bottom bottom",
-      scrub: 0.3,
-      onUpdate: (self) => {
-        // Direct style mutation, no React re-render, stays 60fps
-        bar.style.transform = `scaleY(${self.progress})`
-      },
-    })
-
-    return () => st.kill()
+    let raf = 0
+    const tick = () => {
+      const h = document.documentElement.scrollHeight - innerHeight
+      if (bar.current) bar.current.style.transform = `scaleY(${h > 0 ? scrollY / h : 0})`
+      raf = requestAnimationFrame(tick)
+    }
+    raf = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(raf)
   }, [])
-
   return (
-    <div
-      aria-hidden
-      style={{
-        position: "fixed",
-        right: 0,
-        top: 0,
-        width: 2,
-        height: "100vh",
-        zIndex: 9999,
-        pointerEvents: "none",
-        background: "rgba(81,132,163,0.12)",
-      }}
-    >
-      <div
-        ref={barRef}
-        style={{
-          width: "100%",
-          height: "100%",
-          background: "linear-gradient(to bottom, #7BB3D4, #5184A3)",
-          transformOrigin: "top center",
-          transform: "scaleY(0)",
-          willChange: "transform",
-        }}
-      />
+    <div aria-hidden style={{ position: "fixed", right: 0, top: 0, width: 2, height: "100vh", zIndex: 800, background: "rgba(74,122,150,.12)", pointerEvents: "none" }}>
+      <div ref={bar} style={{ width: "100%", height: "100%", background: "var(--accent)", transformOrigin: "top", transform: "scaleY(0)", willChange: "transform" }} />
     </div>
   )
 }

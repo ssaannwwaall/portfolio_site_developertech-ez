@@ -1,25 +1,24 @@
-import { HeroSection }      from "@/components/hero-section"
-import { ServicesSection }  from "@/components/services-section"
-import { ProjectsSection }  from "@/components/projects-section"
-import { AboutSection }     from "@/components/about-section"
-import { StorySection }     from "@/components/story-section"
-import { TechStackSection } from "@/components/tech-stack-section"
-import { ClientsMap }       from "@/components/clients-map"
-import { FaqSection }       from "@/components/faq-section"
-import { ContactSection }   from "@/components/contact-section"
+import { HeroSection } from "@/components/hero-section"
+import { ServicesSection } from "@/components/services-section"
+import { ProjectsSection } from "@/components/projects-section"
+import { NumbersSection } from "@/components/numbers-section"
+import { AboutSection } from "@/components/about-section"
+import { ClientsMap } from "@/components/clients-map"
+import { CtaSection } from "@/components/cta-section"
 
 export default function HomePage() {
   return (
     <main>
       <HeroSection />
-      <ServicesSection />
-      <ProjectsSection />
-      <AboutSection />
-      <StorySection />        {/* ← pinned storytelling: I listen → I plan → I build → I deliver */}
-      <TechStackSection />
-      <ClientsMap />
-      <FaqSection />
-      <ContactSection />
+      {/* Everything below slides over the pinned hero */}
+      <div style={{ position: "relative", zIndex: 1, background: "var(--paper)", boxShadow: "0 -30px 60px rgba(14,27,38,.06)" }}>
+        <ServicesSection />
+        <ProjectsSection />
+        <NumbersSection />
+        <AboutSection />
+        <ClientsMap />
+        <CtaSection />
+      </div>
     </main>
   )
 }

@@ -1,177 +1,85 @@
 "use client"
-
 import { useEffect, useRef } from "react"
 
 export function CustomCursor() {
-  const dotRef   = useRef<HTMLDivElement>(null)
-  const ringRef  = useRef<HTMLDivElement>(null)
-  const labelRef = useRef<HTMLDivElement>(null)
+  const dot = useRef<HTMLDivElement>(null)
+  const ring = useRef<HTMLDivElement>(null)
+  const label = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    // Disable on touch devices or reduced-motion
     if (window.matchMedia("(pointer: coarse)").matches) return
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
 
-    const dot   = dotRef.current!
-    const ring  = ringRef.current!
-    const label = labelRef.current!
+    const d = dot.current!, r = ring.current!, l = label.current!
+    let mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my, raf = 0
 
-    // Hide native cursor globally
-    document.documentElement.style.cursor = "none"
+    const move = (e: MouseEvent) => { mx = e.clientX; my = e.clientY }
+    addEventListener("mousemove", move, { passive: true })
 
-    let mouseX = window.innerWidth  / 2
-    let mouseY = window.innerHeight / 2
-    let ringX  = mouseX
-    let ringY  = mouseY
-    let rafId  = 0
-
-    const LERP = 0.12
-
-    // Track mouse
-    const onMove = (e: MouseEvent) => {
-      mouseX = e.clientX
-      mouseY = e.clientY
-    }
-    window.addEventListener("mousemove", onMove)
-
-    // RAF loop, 60fps smooth trailing
     const tick = () => {
-      // Dot: zero-lag
-      dot.style.transform  = `translate(${mouseX}px, ${mouseY}px)`
-
-      // Ring: lerp trailing
-      ringX += (mouseX - ringX) * LERP
-      ringY += (mouseY - ringY) * LERP
-      ring.style.transform  = `translate(${ringX}px, ${ringY}px)`
-      label.style.transform = `translate(${ringX}px, ${ringY}px)`
-
-      rafId = requestAnimationFrame(tick)
+      d.style.transform = `translate3d(${mx}px,${my}px,0) translate(-50%,-50%)`
+      rx += (mx - rx) * 0.12
+      ry += (my - ry) * 0.12
+      r.style.transform = `translate3d(${rx}px,${ry}px,0) translate(-50%,-50%)`
+      l.style.transform = `translate3d(${rx}px,${ry}px,0) translate(-50%,-50%)`
+      raf = requestAnimationFrame(tick)
     }
-    rafId = requestAnimationFrame(tick)
+    raf = requestAnimationFrame(tick)
 
-    // Hover on interactive elements → ring scale-up, dot hide
-    const addHover = () => {
-      ring.style.width   = "56px"
-      ring.style.height  = "56px"
-      ring.style.opacity = "0.5"
-      ring.style.backdropFilter = "blur(4px)"
-      dot.style.opacity  = "0"
-    }
-    const removeHover = () => {
-      ring.style.width   = "36px"
-      ring.style.height  = "36px"
-      ring.style.opacity = "0.7"
-      ring.style.backdropFilter = "none"
-      dot.style.opacity  = "1"
-      label.style.opacity = "0"
-    }
+    const grow = () => { r.style.width = "70px"; r.style.height = "70px"; r.style.opacity = ".45"; d.style.opacity = "0" }
+    const view = () => { grow(); l.style.opacity = "1" }
+    const reset = () => { r.style.width = "34px"; r.style.height = "34px"; r.style.opacity = ".75"; d.style.opacity = "1"; l.style.opacity = "0" }
 
-    // Image hover → show "View" label
-    const addImageHover = () => {
-      ring.style.width   = "72px"
-      ring.style.height  = "72px"
-      ring.style.opacity = "0.35"
-      dot.style.opacity  = "0"
-      label.style.opacity = "1"
-    }
-
-    // Magnetic pull on buttons
-    const onButtonEnter = (e: Event) => {
-      addHover()
-      const btn = e.currentTarget as HTMLElement
-      const move = (ev: MouseEvent) => {
-        const rect = btn.getBoundingClientRect()
-        const cx = rect.left + rect.width  / 2
-        const cy = rect.top  + rect.height / 2
-        const dx = (ev.clientX - cx) * 0.25
-        const dy = (ev.clientY - cy) * 0.25
-        btn.style.transform = `translate(${dx}px, ${dy}px)`
+    const magEnter = (e: Event) => {
+      const b = e.currentTarget as HTMLElement & { _mv?: (ev: MouseEvent) => void }
+      const mv = (ev: MouseEvent) => {
+        const q = b.getBoundingClientRect()
+        b.style.transform = `translate(${(ev.clientX - q.left - q.width / 2) * 0.22}px,${(ev.clientY - q.top - q.height / 2) * 0.22}px)`
       }
-      btn.addEventListener("mousemove", move)
-      ;(btn as any)._moveFn = move
+      b.addEventListener("mousemove", mv); b._mv = mv; grow()
     }
-    const onButtonLeave = (e: Event) => {
-      removeHover()
-      const btn = e.currentTarget as HTMLElement
-      btn.style.transform = "translate(0,0)"
-      btn.style.transition = "transform 0.4s cubic-bezier(0.23,1,0.32,1)"
-      if ((btn as any)._moveFn) btn.removeEventListener("mousemove", (btn as any)._moveFn)
-      setTimeout(() => { btn.style.transition = "" }, 400)
+    const magLeave = (e: Event) => {
+      const b = e.currentTarget as HTMLElement & { _mv?: (ev: MouseEvent) => void }
+      b.style.transform = "translate(0,0)"
+      if (b._mv) b.removeEventListener("mousemove", b._mv)
+      reset()
     }
 
-    // Register listeners
-    const interactive = document.querySelectorAll("a, button, [data-cursor-hover]")
-    const images      = document.querySelectorAll("[data-cursor-view]")
-    const buttons     = document.querySelectorAll("a.btn-magnetic, button.btn-magnetic")
-
-    interactive.forEach(el => {
-      el.addEventListener("mouseenter", addHover)
-      el.addEventListener("mouseleave", removeHover)
-      ;(el as HTMLElement).style.cursor = "none"
-    })
-    images.forEach(el => {
-      el.addEventListener("mouseenter", addImageHover)
-      el.addEventListener("mouseleave", removeHover)
-    })
-    buttons.forEach(el => {
-      el.addEventListener("mouseenter", onButtonEnter)
-      el.addEventListener("mouseleave", onButtonLeave)
-    })
+    const wire = () => {
+      document.querySelectorAll<HTMLElement>("a,button").forEach(el => {
+        if (el.dataset.cw) return
+        el.dataset.cw = "1"
+        if (el.classList.contains("mag")) {
+          el.addEventListener("mouseenter", magEnter); el.addEventListener("mouseleave", magLeave)
+        } else {
+          el.addEventListener("mouseenter", grow); el.addEventListener("mouseleave", reset)
+        }
+      })
+      document.querySelectorAll<HTMLElement>("[data-view]").forEach(el => {
+        if (el.dataset.cw) return
+        el.dataset.cw = "1"
+        el.addEventListener("mouseenter", view); el.addEventListener("mouseleave", reset)
+      })
+    }
+    wire()
+    const mo = new MutationObserver(wire)
+    mo.observe(document.body, { childList: true, subtree: true })
+    document.documentElement.classList.add("cursor-on")
 
     return () => {
-      cancelAnimationFrame(rafId)
-      window.removeEventListener("mousemove", onMove)
-      document.documentElement.style.cursor = ""
-      interactive.forEach(el => {
-        el.removeEventListener("mouseenter", addHover)
-        el.removeEventListener("mouseleave", removeHover)
-      })
-      images.forEach(el => {
-        el.removeEventListener("mouseenter", addImageHover)
-        el.removeEventListener("mouseleave", removeHover)
-      })
-      buttons.forEach(el => {
-        el.removeEventListener("mouseenter", onButtonEnter)
-        el.removeEventListener("mouseleave", onButtonLeave)
-      })
+      cancelAnimationFrame(raf)
+      removeEventListener("mousemove", move)
+      mo.disconnect()
+      document.documentElement.classList.remove("cursor-on")
     }
   }, [])
 
+  const base: React.CSSProperties = { position: "fixed", top: 0, left: 0, pointerEvents: "none", willChange: "transform" }
   return (
     <>
-      {/* Solid dot, zero lag */}
-      <div ref={dotRef} aria-hidden style={{
-        position:"fixed", top:0, left:0, zIndex:99999, pointerEvents:"none",
-        width:7, height:7, borderRadius:"50%",
-        background:"#5184A3",
-        transform:"translate(-50%,-50%)",
-        marginLeft:"-3.5px", marginTop:"-3.5px",
-        willChange:"transform",
-        transition:"opacity 0.2s",
-      }}/>
-
-      {/* Trailing ring */}
-      <div ref={ringRef} aria-hidden style={{
-        position:"fixed", top:0, left:0, zIndex:99998, pointerEvents:"none",
-        width:36, height:36, borderRadius:"50%",
-        border:"1.5px solid rgba(81,132,163,0.7)",
-        transform:"translate(-50%,-50%)",
-        marginLeft:"-18px", marginTop:"-18px",
-        willChange:"transform",
-        transition:"width 0.25s ease, height 0.25s ease, opacity 0.25s ease",
-        opacity:0.7,
-      }}/>
-
-      {/* "View" label inside ring on image hover */}
-      <div ref={labelRef} aria-hidden style={{
-        position:"fixed", top:0, left:0, zIndex:99999, pointerEvents:"none",
-        transform:"translate(-50%,-50%)",
-        marginLeft:"-20px", marginTop:"-10px",
-        color:"#fff", fontSize:"11px", fontWeight:700,
-        letterSpacing:"0.06em", textTransform:"uppercase",
-        opacity:0, transition:"opacity 0.2s",
-        willChange:"transform",
-      }}>View</div>
+      <div ref={dot} aria-hidden style={{ ...base, zIndex: 9999, width: 6, height: 6, borderRadius: "50%", background: "var(--ink)", transition: "opacity .25s" }} />
+      <div ref={ring} aria-hidden style={{ ...base, zIndex: 9998, width: 34, height: 34, borderRadius: "50%", border: "1px solid var(--ink)", opacity: .75, transition: "width .35s cubic-bezier(.16,1,.3,1),height .35s cubic-bezier(.16,1,.3,1),opacity .35s" }} />
+      <div ref={label} aria-hidden style={{ ...base, zIndex: 9999, fontSize: 10, fontWeight: 600, letterSpacing: ".14em", textTransform: "uppercase", color: "var(--ink)", opacity: 0, transition: "opacity .3s" }}>View</div>
     </>
   )
 }
