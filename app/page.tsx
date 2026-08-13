@@ -3,6 +3,7 @@ import { ServicesSection }    from "@/components/services-section"
 import { ProjectsSection }    from "@/components/projects-section"
 import { AboutSection }       from "@/components/about-section"
 import { TechStackSection }   from "@/components/tech-stack-section"
+import { ClientsMap }         from "@/components/clients-map"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { FaqSection }         from "@/components/faq-section"
 import { ContactSection }     from "@/components/contact-section"
@@ -15,6 +16,7 @@ export default function HomePage() {
       <ProjectsSection />
       <AboutSection />
       <TechStackSection />
+      <ClientsMap />
       <TestimonialsSection />
       <FaqSection />
       <ContactSection />
