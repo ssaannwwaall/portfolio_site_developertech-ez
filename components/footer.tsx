@@ -29,9 +29,15 @@ export function Footer() {
             ))}
           </div>
           <div>
-            <div className="foot-h">Services</div>
-            {["Mobile Apps", "Web Platforms", "AI Integration", "Enterprise SaaS", "Dispatch Systems"].map(l => (
-              <div key={l} className="foot-link" style={{ cursor: "default" }}>{l}</div>
+            <div className="foot-h">Solutions</div>
+            {[["Taxi Dispatch Software", "/taxi-dispatch-software"], ["Guard Monitoring Software", "/guard-monitoring-software"], ["Mobile Apps", "/services"], ["Web Platforms", "/services"], ["AI Integration", "/services"]].map(([l, h]) => (
+              <Link key={l} href={h} className="foot-link">{l}</Link>
+            ))}
+          </div>
+          <div>
+            <div className="foot-h">Regions</div>
+            {[["United Kingdom", "/flutter-app-development-uk"], ["United States", "/software-development-company-usa"], ["Dubai and UAE", "/mobile-app-development-dubai"], ["Malaysia", "/software-development-malaysia"], ["Europe", "/software-development-europe"]].map(([l, h]) => (
+              <Link key={l} href={h} className="foot-link">{l}</Link>
             ))}
           </div>
           <div>
@@ -48,12 +54,13 @@ export function Footer() {
       </div>
       <style jsx>{`
         .foot-grid {
-          display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 46px;
+          display: grid; grid-template-columns: 1.8fr 1fr 1.15fr 1.15fr 1fr; gap: 40px;
           margin-bottom: 56px; padding-bottom: 52px; border-bottom: 1px solid var(--line-dk);
         }
         .foot-h { font-size: 11.5px; color: var(--accent-lt); letter-spacing: .14em; text-transform: uppercase; margin-bottom: 18px; }
         .foot-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px; font-size: 13px; color: rgba(251,250,248,.36); }
-        @media (max-width: 860px) { .foot-grid { grid-template-columns: 1fr 1fr; gap: 34px; } }
+        @media (max-width: 1100px) { .foot-grid { grid-template-columns: 1fr 1fr 1fr; gap: 34px; } }
+        @media (max-width: 720px) { .foot-grid { grid-template-columns: 1fr 1fr; gap: 30px; } }
       `}</style>
     </footer>
   )

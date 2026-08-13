@@ -179,3 +179,17 @@ input, textarea, select { font-family: inherit; }
   .skill-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; gap: 44px; }
 }
+
+/* Location landing pages */
+.loc-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 70px; align-items: start; }
+.loc-services { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
+.loc-work { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.loc-faq { display: grid; grid-template-columns: 1fr 1.2fr; gap: 70px; align-items: start; }
+@media (max-width: 980px) {
+  .loc-grid, .loc-faq { grid-template-columns: 1fr; gap: 40px; }
+  .loc-services { grid-template-columns: 1fr 1fr; }
+  .loc-work { grid-template-columns: 1fr; gap: 40px; }
+}
+@media (max-width: 620px) {
+  .loc-services { grid-template-columns: 1fr; }
+}
