@@ -2,6 +2,7 @@ import { HeroSection }      from "@/components/hero-section"
 import { ServicesSection }  from "@/components/services-section"
 import { ProjectsSection }  from "@/components/projects-section"
 import { AboutSection }     from "@/components/about-section"
+import { StorySection }     from "@/components/story-section"
 import { TechStackSection } from "@/components/tech-stack-section"
 import { ClientsMap }       from "@/components/clients-map"
 import { FaqSection }       from "@/components/faq-section"
@@ -14,6 +15,7 @@ export default function HomePage() {
       <ServicesSection />
       <ProjectsSection />
       <AboutSection />
+      <StorySection />        {/* ← pinned storytelling: I listen → I plan → I build → I deliver */}
       <TechStackSection />
       <ClientsMap />
       <FaqSection />
