@@ -242,3 +242,38 @@
 ::-webkit-scrollbar-track { background: #090E16; }
 ::-webkit-scrollbar-thumb { background: #1A2C3F; border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: #5184A3; }
+
+/* ─── Scroll animation base states ─────────────────────────────── */
+/* Applied by GSAP before animations run — prevents flash of unstyled content */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+/* Sections that use pinSpacing: false need explicit z-index stacking */
+section {
+  position: relative;
+  z-index: 1;
+}
+/* Hero sits above everything else while pinned */
+#home {
+  z-index: 10;
+  background: var(--background); /* solid bg so next section slides UNDER */
+}
+
+/* Word mask wrapper — created by MaskText component */
+.word-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  line-height: 1.1;
+}
+.word {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* Magnetic button base — cursor.tsx adds move listener */
+.btn-magnetic {
+  transition: transform 0.4s cubic-bezier(0.23,1,0.32,1);
+}
