@@ -1,15 +1,48 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { ComposableMap, Geographies, Geography, Marker, Line } from "react-simple-maps"
+import dynamic from "next/dynamic"
 import { CLIENTS } from "./work-data"
 import { MaskHeading, Rise } from "./mask-heading"
+import { MapBoundary } from "./map-boundary"
 
-const GEO = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"
 const FIVERR = "https://www.fiverr.com/sanwalkhan842"
 
-/* ISO numeric codes we tint as "where we work" */
-const ACTIVE = new Set(["826", "840", "784", "276", "356", "586"])
+/* Loaded in the browser only. If the mapping library fails, the boundary
+   below swaps in a static fallback instead of crashing the page. */
+const WorldMap = dynamic(() => import("./world-map"), {
+  ssr: false,
+  loading: () => <MapSkeleton />,
+})
+
+function MapSkeleton() {
+  return (
+    <div style={{ height: 420, display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <span style={{ fontSize: 12, color: "rgba(251,250,248,.3)", letterSpacing: ".12em", textTransform: "uppercase" }}>
+        Loading map
+      </span>
+    </div>
+  )
+}
+
+/* Shown if the map cannot render at all. Keeps the section meaningful. */
+function MapFallback({ onSelect }: { onSelect: (id: string) => void }) {
+  return (
+    <div style={{ padding: "56px 40px", display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(150px,1fr))", gap: 14 }}>
+      {CLIENTS.map(c => (
+        <button key={c.id} onClick={() => onSelect(c.id)}
+          style={{
+            background: "#12212C", border: `1px solid ${c.color}30`, padding: "20px 18px",
+            textAlign: "left", cursor: "pointer", fontFamily: "inherit",
+          }}>
+          <div style={{ fontSize: 11, color: c.color, fontWeight: 700, letterSpacing: ".1em", marginBottom: 8 }}>{c.flag}</div>
+          <div style={{ fontSize: 14, color: "#FBFAF8", fontWeight: 500, marginBottom: 3 }}>{c.name}</div>
+          <div style={{ fontSize: 12, color: "rgba(251,250,248,.45)" }}>{c.city}</div>
+        </button>
+      ))}
+    </div>
+  )
+}
 
 export function ClientsMap() {
   const [active, setActive] = useState<string | null>(null)
@@ -59,71 +92,9 @@ export function ClientsMap() {
           opacity: seen ? 1 : 0, transform: seen ? "scale(1)" : "scale(.985)",
           transition: "opacity 1.1s cubic-bezier(.16,1,.3,1) .15s, transform 1.1s cubic-bezier(.16,1,.3,1) .15s",
         }}>
-          <ComposableMap
-            projection="geoEqualEarth"
-            projectionConfig={{ scale: 168, center: [12, 12] }}
-            width={900} height={420}
-            style={{ width: "100%", height: "auto", display: "block" }}
-          >
-            <Geographies geography={GEO}>
-              {({ geographies }) =>
-                geographies.map(geo => {
-                  const on = ACTIVE.has(String(geo.id))
-                  return (
-                    <Geography key={geo.rsmKey} geography={geo}
-                      style={{
-                        default: { fill: on ? "#22384A" : "#16252F", stroke: "#22384A", strokeWidth: 0.4, outline: "none" },
-                        hover:   { fill: on ? "#274355" : "#1A2C38", stroke: "#2C4759", strokeWidth: 0.4, outline: "none" },
-                        pressed: { outline: "none" },
-                      }}
-                      fill={on ? "#22384A" : "#16252F"}
-                    />
-                  )
-                })
-              }
-            </Geographies>
-
-            {/* Arcs from studio to each client */}
-            {CLIENTS.filter(c => !c.hq).map((c, i) => (
-              <Line key={c.id}
-                from={hq.coords} to={c.coords}
-                stroke={active === c.id ? c.color : "#4A7A96"}
-                strokeWidth={active === c.id ? 1.6 : 0.8}
-                strokeLinecap="round"
-                opacity={active === c.id ? 0.9 : 0.32}
-                style={{
-                  strokeDasharray: 400,
-                  strokeDashoffset: seen ? 0 : 400,
-                  transition: `stroke-dashoffset 1.7s cubic-bezier(.16,1,.3,1) ${0.55 + i * 0.13}s, opacity .4s, stroke-width .4s, stroke .4s`,
-                }}
-              />
-            ))}
-
-            {/* Markers */}
-            {CLIENTS.map((c, i) => (
-              <Marker key={c.id} coordinates={c.coords}
-                onClick={() => setActive(active === c.id ? null : c.id)}
-                style={{ default: { cursor: "pointer" }, hover: { cursor: "pointer" }, pressed: { cursor: "pointer" } }}>
-                <g style={{ opacity: seen ? 1 : 0, transition: `opacity .5s ease ${1 + i * 0.09}s` }}>
-                  <circle r={active === c.id ? 13 : 9} fill="none" stroke={c.color} strokeWidth={0.9}
-                    opacity={active === c.id ? 0.75 : 0.3}
-                    style={{ transition: "all .4s cubic-bezier(.16,1,.3,1)" }} />
-                  {c.hq && (
-                    <circle r={9} fill="none" stroke={c.color} strokeWidth={1}>
-                      <animate attributeName="r" values="6;16;6" dur="3s" repeatCount="indefinite" />
-                      <animate attributeName="opacity" values=".8;0;.8" dur="3s" repeatCount="indefinite" />
-                    </circle>
-                  )}
-                  <circle r={c.hq ? 5 : 4} fill={c.color} stroke="#0A1520" strokeWidth={1.4} />
-                  <text textAnchor="middle" y={-14} fontSize={8.5} fontWeight={600}
-                    letterSpacing=".08em" style={{ pointerEvents: "none", transition: "fill .3s" }}
-                    fill={active === c.id ? "#FBFAF8" : "rgba(251,250,248,.55)"}>
-                    {c.flag}
-                  </text>
-                </g>
-              </Marker>
-            ))}
-          </ComposableMap>
+          <MapBoundary fallback={<MapFallback onSelect={setActive} />}>
+            <WorldMap active={active} setActive={setActive} seen={seen} />
+          </MapBoundary>
 
           <div style={{
             position: "absolute", top: 18, right: 22, fontSize: 10.5,
