@@ -9,6 +9,8 @@ import { WhatsAppFloat } from "@/components/whatsapp-float"
 import { CustomCursor } from "@/components/custom-cursor"
 import { ScrollProgress } from "@/components/scroll-progress"
 import { StructuredData } from "@/components/structured-data"
+import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://developerstech.space"),
@@ -75,6 +77,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <Footer />
         <WhatsAppFloat />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
