@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next"
+import { POSTS } from "@/content/posts"
 
 const BASE = "https://developerstech.space"
 
@@ -17,11 +18,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/software-development-europe",        0.9, "monthly"],
     ["/taxi-dispatch-software",             0.8, "monthly"],
     ["/guard-monitoring-software",          0.8, "monthly"],
+    ["/blog",                               0.8, "weekly"],
   ]
-  return pages.map(([path, priority, changeFrequency]) => ({
+  const staticPages = pages.map(([path, priority, changeFrequency]) => ({
     url: `${BASE}${path}`,
     lastModified: now,
     changeFrequency,
     priority,
   }))
+
+  const posts = POSTS.map(post => ({
+    url: `${BASE}/blog/${post.slug}`,
+    lastModified: new Date(post.updated ?? post.published),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }))
+
+  return [...staticPages, ...posts]
 }

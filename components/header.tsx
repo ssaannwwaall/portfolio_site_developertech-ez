@@ -9,6 +9,7 @@ const NAV = [
   { l: "Work", h: "/portfolio" },
   { l: "Services", h: "/services" },
   { l: "About", h: "/about" },
+  { l: "Writing", h: "/blog" },
   { l: "Contact", h: "/contact" },
 ]
 const WA = "https://wa.me/923074494175?text=Hi%20Sanwal!%20I%27d%20like%20to%20start%20a%20project%20with%20DevelopersTech."

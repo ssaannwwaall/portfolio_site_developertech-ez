@@ -24,7 +24,7 @@ export function Footer() {
           </div>
           <div>
             <div className="foot-h">Navigate</div>
-            {[["Home", "/"], ["Work", "/portfolio"], ["Services", "/services"], ["About", "/about"], ["Contact", "/contact"]].map(([l, h]) => (
+            {[["Home", "/"], ["Work", "/portfolio"], ["Services", "/services"], ["About", "/about"], ["Writing", "/blog"], ["Contact", "/contact"]].map(([l, h]) => (
               <Link key={h} href={h} className="foot-link">{l}</Link>
             ))}
           </div>
