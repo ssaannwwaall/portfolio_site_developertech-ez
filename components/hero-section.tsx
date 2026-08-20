@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useRef, useState } from "react"
+import { subscribe, readScroll } from "@/lib/ticker"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -16,18 +17,19 @@ export function HeroSection() {
   /* Pinned: scale + fade as the next section slides over */
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
-    let raf = 0
-    const tick = () => {
+    let last = -1
+    // Shared loop. Once the hero is fully scrolled past there is nothing left
+    // to animate, so the write is skipped entirely.
+    return subscribe(() => {
       const el = inner.current
-      if (el) {
-        const p = Math.min(Math.max(window.scrollY / (window.innerHeight * 0.85), 0), 1)
-        el.style.transform = `scale(${1 - p * 0.07}) translateY(${-p * 40}px)`
-        el.style.opacity = String(1 - p * 1.25)
-      }
-      raf = requestAnimationFrame(tick)
-    }
-    raf = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(raf)
+      if (!el) return
+      const { scrollY, viewportH } = readScroll()
+      const p = Math.min(Math.max(scrollY / (viewportH * 0.85), 0), 1)
+      if (p === last || (p >= 1 && last >= 1)) return
+      last = p
+      el.style.transform = `scale(${1 - p * 0.07}) translateY(${-p * 40}px)`
+      el.style.opacity = String(1 - p * 1.25)
+    })
   }, [])
 
   const word = (w: string, i: number, italic?: boolean) => (

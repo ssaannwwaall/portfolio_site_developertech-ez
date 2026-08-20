@@ -51,13 +51,20 @@ export function ClientsMap() {
   const client = CLIENTS.find(c => c.id === active)
   const hq = CLIENTS.find(c => c.hq)!
 
+  const [nearView, setNearView] = useState(false)
+
   useEffect(() => {
     const el = wrap.current
     if (!el) return
+    // Fires early so the map chunk and its TopoJSON are fetched just before
+    // the section is reached, rather than competing with the initial paint.
+    const pre = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setNearView(true); pre.disconnect() } },
+      { rootMargin: "600px 0px" })
     const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setSeen(true); io.disconnect() } },
       { threshold: 0.15 })
+    pre.observe(el)
     io.observe(el)
-    return () => io.disconnect()
+    return () => { pre.disconnect(); io.disconnect() }
   }, [])
 
   return (
@@ -93,7 +100,9 @@ export function ClientsMap() {
           transition: "opacity 1.1s cubic-bezier(.16,1,.3,1) .15s, transform 1.1s cubic-bezier(.16,1,.3,1) .15s",
         }}>
           <MapBoundary fallback={<MapFallback onSelect={setActive} />}>
-            <WorldMap active={active} setActive={setActive} seen={seen} />
+            {nearView
+              ? <WorldMap active={active} setActive={setActive} seen={seen} />
+              : <MapSkeleton />}
           </MapBoundary>
 
           <div style={{

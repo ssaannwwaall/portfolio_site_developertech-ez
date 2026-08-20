@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useRef } from "react"
+import { subscribe } from "@/lib/ticker"
 
 export function CustomCursor() {
   const dot = useRef<HTMLDivElement>(null)
@@ -11,20 +12,41 @@ export function CustomCursor() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
 
     const d = dot.current!, r = ring.current!, l = label.current!
-    let mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my, raf = 0
+    let mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my
+    let unsubscribe: (() => void) | null = null
+    let idleTimer = 0
 
-    const move = (e: MouseEvent) => { mx = e.clientX; my = e.clientY }
-    addEventListener("mousemove", move, { passive: true })
-
+    // The ring eases toward the pointer, so it still needs frames briefly
+    // after the pointer stops. Once it has settled the loop is released
+    // instead of running forever against a stationary cursor.
     const tick = () => {
       d.style.transform = `translate3d(${mx}px,${my}px,0) translate(-50%,-50%)`
       rx += (mx - rx) * 0.12
       ry += (my - ry) * 0.12
       r.style.transform = `translate3d(${rx}px,${ry}px,0) translate(-50%,-50%)`
       l.style.transform = `translate3d(${rx}px,${ry}px,0) translate(-50%,-50%)`
-      raf = requestAnimationFrame(tick)
+
+      if (Math.abs(mx - rx) < 0.1 && Math.abs(my - ry) < 0.1) {
+        unsubscribe?.()
+        unsubscribe = null
+      }
     }
-    raf = requestAnimationFrame(tick)
+
+    const wake = () => {
+      if (!unsubscribe) unsubscribe = subscribe(tick)
+      clearTimeout(idleTimer)
+      idleTimer = window.setTimeout(() => {
+        unsubscribe?.()
+        unsubscribe = null
+      }, 400)
+    }
+
+    const move = (e: MouseEvent) => {
+      mx = e.clientX
+      my = e.clientY
+      wake()
+    }
+    addEventListener("mousemove", move, { passive: true })
 
     const grow = () => { r.style.width = "70px"; r.style.height = "70px"; r.style.opacity = ".5"; d.style.opacity = "0" }
     const view = () => { grow(); l.style.opacity = "1" }
@@ -67,7 +89,8 @@ export function CustomCursor() {
     document.documentElement.classList.add("cursor-on")
 
     return () => {
-      cancelAnimationFrame(raf)
+      unsubscribe?.()
+      clearTimeout(idleTimer)
       removeEventListener("mousemove", move)
       mo.disconnect()
       document.documentElement.classList.remove("cursor-on")

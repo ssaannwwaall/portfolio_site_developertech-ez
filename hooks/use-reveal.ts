@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useRef, type RefObject } from "react"
+import { subscribe } from "@/lib/ticker"
 
 /** Adds .revealed when the element scrolls into view. Handles mask + rise. */
 export function useReveal<T extends HTMLElement>(threshold = 0.15): RefObject<T> {
@@ -19,25 +20,60 @@ export function useReveal<T extends HTMLElement>(threshold = 0.15): RefObject<T>
   return ref
 }
 
-/** Parallax: shifts a [data-parallax] child as the wrapper crosses the viewport. */
+/**
+ * Parallax that only costs anything while the element is on screen.
+ *
+ * Previously each instance ran its own permanent rAF loop reading
+ * getBoundingClientRect every frame, whether the image was visible or not.
+ * Now an IntersectionObserver gates subscription to the shared ticker, and
+ * the element's page offset is measured once rather than every frame.
+ */
 export function useParallax<T extends HTMLElement>(strength = 18): RefObject<T> {
   const ref = useRef<T>(null)
+
   useEffect(() => {
     const wrap = ref.current
     if (!wrap) return
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
+
     const img = wrap.querySelector<HTMLElement>("[data-parallax]") ?? wrap
-    let raf = 0
-    const tick = () => {
+    let unsubscribe: (() => void) | null = null
+    let centreOffset = 0
+    let height = 0
+
+    const remeasure = () => {
       const r = wrap.getBoundingClientRect()
-      if (r.bottom > 0 && r.top < window.innerHeight) {
-        const p = (r.top + r.height / 2 - window.innerHeight / 2) / window.innerHeight
-        img.style.transform = `translate3d(0,${p * strength}px,0) scale(1.1)`
-      }
-      raf = requestAnimationFrame(tick)
+      height = r.height
+      centreOffset = r.top + window.scrollY + height / 2
     }
-    raf = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(raf)
+
+    const tick = () => {
+      const vh = window.innerHeight
+      // Position of the element centre relative to the viewport centre,
+      // derived from cached geometry instead of a fresh layout read.
+      const p = (centreOffset - window.scrollY - vh / 2) / vh
+      img.style.transform = `translate3d(0,${p * strength}px,0) scale(1.1)`
+    }
+
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) {
+        remeasure()
+        if (!unsubscribe) unsubscribe = subscribe(tick)
+      } else {
+        unsubscribe?.()
+        unsubscribe = null
+      }
+    }, { rootMargin: "120px 0px" })
+
+    io.observe(wrap)
+    window.addEventListener("resize", remeasure, { passive: true })
+
+    return () => {
+      io.disconnect()
+      unsubscribe?.()
+      window.removeEventListener("resize", remeasure)
+    }
   }, [strength])
+
   return ref
 }
