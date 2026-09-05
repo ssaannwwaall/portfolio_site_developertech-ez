@@ -23,6 +23,152 @@ export interface Post {
 
 export const POSTS: Post[] = [
   {
+    slug: "native-to-flutter-migration-worth-it",
+    title: "We cut maintenance cost by 40% migrating to Flutter. Here is when not to.",
+    metaTitle: "Native to Flutter Migration: When It Is Worth It and When It Is Not",
+    description:
+      "A native Android to Flutter migration cut our maintenance cost by roughly 40%. The honest account of where that saving came from, and the projects where migrating would have been the wrong call.",
+    keywords: [
+      "native to Flutter migration",
+      "should I migrate to Flutter",
+      "Flutter migration cost",
+      "Android to Flutter migration",
+      "cross platform migration",
+      "Flutter vs native maintenance cost",
+    ],
+    published: "2026-08-20",
+    readingTime: "9 min read",
+    category: "Flutter",
+    excerpt:
+      "The 40% number gets quoted at us more than anything else we have published. It is real. It is also narrower than it sounds, and it did not come from where most people assume.",
+    body: [
+      { t: "p", v: "A few years ago we migrated a client from a native Android codebase to Flutter and their ongoing maintenance cost dropped by roughly forty percent. That number has followed us around ever since, and it comes up in almost every conversation about migration." },
+      { t: "p", v: "It is a real number. It is also narrower than people assume when they hear it, and I have watched at least two prospects reach for a migration on the strength of it when their situation was nothing like the one it came from. So this is the honest version, including the projects where we told a client not to bother." },
+
+      { t: "h2", v: "Where the saving actually came from" },
+      { t: "p", v: "Not from Flutter being faster to write. Writing Dart is not meaningfully quicker than writing Kotlin once you know both." },
+      { t: "p", v: "The saving came from something duller. They were maintaining two applications that were supposed to behave identically and did not. A fix would land on Android and take another sprint to reach iOS, or it would land on both and be implemented slightly differently, and three months later a bug would appear on one platform that nobody could reproduce on the other." },
+      { t: "p", v: "Most of what was being paid for was not building features. It was reconciling two codebases that kept drifting apart. When the business logic moved into one place, that entire category of work disappeared." },
+      { t: "note", v: "This is why the number does not transfer to a company running a single Android app. There was no drift to eliminate, so there is no forty percent to save. The saving was a function of their specific mess, not a property of Flutter." },
+
+      { t: "h2", v: "What the migration actually cost" },
+      { t: "p", v: "The rebuild took longer than the estimate. Not dramatically, but enough to be worth saying out loud, because I have never seen a migration case study admit this." },
+      { t: "p", v: "The screens went fast. Layout in Flutter is quick and a developer who knows it can move through UI at a good pace. What ate the time was everything touching the platform underneath." },
+      { t: "ul", v: [
+        "Background location, which behaves differently on every manufacturer build and needed testing on real handsets rather than emulators.",
+        "Push notification handling, particularly deep links from a notification when the app was killed rather than backgrounded.",
+        "A payment SDK with no maintained Flutter package, which meant writing a platform channel and maintaining it ourselves.",
+        "Local storage migration, so users updating from the old app did not lose their data. This was three days of work nobody had costed.",
+      ]},
+      { t: "p", v: "None of that is a reason to avoid Flutter. It is a reason to distrust any estimate built by counting screens." },
+
+      { t: "h2", v: "When we tell clients not to migrate" },
+      { t: "p", v: "We have talked more than one company out of this, which is a strange sales position but an easier conversation than the one that happens later." },
+
+      { t: "h3", v: "You only ship on one platform and intend to stay that way" },
+      { t: "p", v: "The core argument for Flutter is one codebase serving several platforms. If you are Android only and have no iOS plan, you are paying migration cost to buy an advantage you have no use for. Stay where you are." },
+
+      { t: "h3", v: "Your app is mostly platform specific capability" },
+      { t: "p", v: "Heavy camera work, Bluetooth peripherals, background audio, anything leaning on recent OS APIs. You will spend the project writing platform channels, which means maintaining native code on both sides plus a Dart layer on top. That is more surface area than you started with, not less." },
+
+      { t: "h3", v: "The existing code is genuinely fine" },
+      { t: "p", v: "Sometimes a team wants to migrate because the codebase is a mess, and the mess is architectural rather than linguistic. Rewriting it in Dart produces the same tangle in a new language, plus a migration bill. If the problem is that nobody separated business logic from the UI, that problem is portable." },
+
+      { t: "h3", v: "You have a native team and no Flutter experience" },
+      { t: "p", v: "A team fluent in Kotlin and Swift will produce better software in those languages than in a framework they are learning on a live project. Migration makes sense when the people maintaining it afterwards actually want it." },
+
+      { t: "h2", v: "When it is clearly worth it" },
+      { t: "p", v: "The pattern is consistent enough to state plainly." },
+      { t: "ol", v: [
+        "Two codebases meant to behave identically, and a history of them not doing so.",
+        "Feature work that lands on one platform noticeably before the other, and users who have noticed.",
+        "A small team, three or four engineers, trying to cover both platforms and covering neither well.",
+        "Business logic that is mostly ordinary. Forms, lists, API calls, state, navigation. This is where Flutter is strongest and where the maintenance saving is real.",
+      ]},
+      { t: "p", v: "Three of those four and the arithmetic usually works. One of them and it usually does not." },
+
+      { t: "h2", v: "How to size it honestly" },
+      { t: "p", v: "If you are considering this, the useful exercise takes an afternoon and does not require an agency." },
+      { t: "p", v: "Go through the last six months of commits and sort maintenance work into two buckets. Work that existed because there were two codebases, and work that would have existed regardless. Cross platform inconsistency bugs, the same fix applied twice, features shipped twice, drift between designs. That first bucket is your ceiling. It is the only part a migration removes." },
+      { t: "p", v: "Then get an estimate for the rebuild and be sceptical of it, particularly around anything touching the platform. Divide the rebuild cost by your monthly first bucket figure. That is your payback period in months." },
+      { t: "p", v: "For the client where we saw forty percent, the payback landed around fourteen months and they had a multi year horizon, so it was straightforward. For a company planning a pivot in eight months, the same arithmetic says do not." },
+
+      { t: "quote", v: "The best migration advice we have given was to a company that did not migrate. They extracted their business logic into a shared module, fixed the drift, and kept both native apps.", by: "Still the right call two years later" },
+
+      { t: "h2", v: "The summary, without the marketing" },
+      { t: "p", v: "Flutter is a good framework and we build most of our mobile work in it. The forty percent is real and we will keep quoting it, because it happened." },
+      { t: "p", v: "But it was a saving on a specific kind of waste, in a specific situation, for a company with a long enough horizon to recover the cost. Read it as a description of what a migration can fix rather than a promise about what yours will save. If your maintenance bill is not mostly two codebases disagreeing with each other, the number does not apply to you, and anyone telling you otherwise is selling a migration." },
+    ],
+  },
+  {
+    slug: "gps-signal-loss-taxi-dispatch",
+    title: "The map is lying to you: GPS signal loss in dispatch systems",
+    metaTitle: "GPS Signal Loss in Taxi Dispatch Software: Why the Map Lies",
+    description:
+      "Dispatch maps show drivers where they last were, not where they are. Here is why that gap causes bad job allocation, and how to build a system that admits when it does not know.",
+    keywords: [
+      "GPS signal loss dispatch",
+      "taxi dispatch software GPS accuracy",
+      "driver tracking app signal loss",
+      "real time vehicle tracking problems",
+      "dispatch system location accuracy",
+      "fleet tracking offline handling",
+    ],
+    published: "2026-08-20",
+    readingTime: "8 min read",
+    category: "Dispatch Systems",
+    excerpt:
+      "A controller sends the nearest car to a job. The car is not there. It has been sitting in a multi storey car park for eleven minutes and the map never said so.",
+    body: [
+      { t: "p", v: "Here is a scene that plays out in dispatch offices more often than anyone admits. A job comes in. The controller looks at the map, sees a car two streets away, and sends it. Four minutes later the passenger calls to ask where the driver is, and the driver is nine minutes out because the car on the map has been parked in a multi storey since half past two." },
+      { t: "p", v: "Nothing crashed. No error appeared. The map was doing exactly what it was built to do, which was show the last position it received. The problem is that a stale position and a live position look identical on a screen, and the controller had no way to tell them apart." },
+      { t: "p", v: "We hit this properly while building TBMS, the dispatch platform we still maintain for a UK operator. It took us longer than it should have to understand that the fix was not better GPS. It was being honest about uncertainty." },
+
+      { t: "h2", v: "Why the default behaviour is wrong" },
+      { t: "p", v: "Almost every tracking system starts the same way. The driver app reads location every few seconds and posts it up. The server stores the newest one. The map draws whatever the server has." },
+      { t: "p", v: "That works until it does not, and when it stops working it does so silently. The app is in a car park with no signal, or the OS has throttled background location to save battery, or the driver force closed the app after their last drop. In all three cases the server keeps holding a position that was true once and is not true now." },
+      { t: "p", v: "A controller looking at that map is being shown a claim with no confidence attached. Two streets away and eleven minutes stale renders exactly the same as two streets away and four seconds fresh." },
+      { t: "note", v: "The nastiest version of this is the driver who genuinely is where the map says, but has been stationary for twenty minutes because they have gone for lunch. The position is accurate. The availability inference drawn from it is not." },
+
+      { t: "h2", v: "What we changed" },
+      { t: "p", v: "The first change was small and it fixed most of the pain. Every position carries the time it was captured, and the map shows position age wherever a controller can see a vehicle." },
+      { t: "p", v: "Under about thirty seconds, the marker is solid. Past a minute or so it starts to fade. Past five minutes it goes hollow with the age printed next to it. Controllers stopped trusting hollow markers within about a week, which is roughly how long it takes anyone to learn that a particular light means something." },
+      { t: "p", v: "We did not need to explain the colours to anybody. Somebody sent one car to a hollow marker, waited, and told the rest of the office." },
+
+      { t: "h3", v: "Capture time, not arrival time" },
+      { t: "p", v: "This one is easy to get wrong and expensive to discover late. If the server timestamps a position when it arrives, then a batch of readings that were queued in a tunnel and uploaded at 15:42 all appear to have happened at 15:42. The driver appears to teleport across three miles in a second, and any speed or route calculation built on top of that is nonsense." },
+      { t: "p", v: "The device knows when it took the reading. That timestamp travels with the reading and the server treats it as authoritative. Arrival time is a separate field and is useful for debugging, nothing else." },
+
+      { t: "h3", v: "Queue instead of drop" },
+      { t: "p", v: "Positions taken while offline go into a local queue and upload in order when signal returns. This matters less for the live map, which only cares about the newest reading anyway, and matters enormously for anything historical. Route reconstruction, mileage, time on site, and any dispute about whether a driver actually went where they said all depend on the gaps being filled in rather than lost." },
+
+      { t: "h3", v: "Let the allocation engine see the uncertainty" },
+      { t: "p", v: "This was the change that actually moved the numbers. Our allocation logic used to treat every position as equally reliable, which meant a stale car frequently beat a fresh one on distance and won the job. Now position age is an input. A vehicle whose last fix is several minutes old is either weighted down or skipped depending on how contested the job is." },
+      { t: "p", v: "The result is not that allocation became perfect. It became less confidently wrong, which is a different and more useful thing." },
+
+      { t: "h2", v: "The battery problem nobody warns you about" },
+      { t: "p", v: "There is a second cause of stale positions that has nothing to do with signal, and it is worse because it looks like signal loss and is not." },
+      { t: "p", v: "Both Android and iOS aggressively restrict what an app can do in the background. Android will doze an app it decides is idle. Manufacturers stack their own battery optimisation on top, and some of them are far more aggressive than stock Android. iOS suspends background execution on its own schedule. The app is not crashed and the phone has full signal, but location updates have quietly stopped arriving." },
+      { t: "p", v: "The honest fix on Android is a foreground service with a persistent notification, which is intrusive and which drivers occasionally complain about. We looked hard for a way around it and did not find one that survives a real shift on a real handset. On some manufacturer builds you also have to walk the driver through disabling battery optimisation during onboarding, because nothing else works." },
+      { t: "quote", v: "We spent two weeks convinced we had a network problem. It was a battery optimisation setting on one make of phone that three of the drivers happened to own.", by: "From our own notes, which we kept because it was annoying" },
+
+      { t: "h2", v: "How to check whether your system has this problem" },
+      { t: "p", v: "You do not need to read any code to find out. Sit with a controller for an hour during a busy period and ask four questions." },
+      { t: "ol", v: [
+        "Can you tell from this screen how old any vehicle position is?",
+        "When a driver goes into an underground car park, what does the map do?",
+        "If a driver has no signal for ten minutes, does the route history fill in afterwards or stay blank?",
+        "Does the allocation engine know the difference between a car that reported four seconds ago and one that reported six minutes ago?",
+      ]},
+      { t: "p", v: "If the answers are no, nothing visible, stays blank, and no, then the map in that office is a confident guess and the controllers have probably already learned not to fully trust it. That last part is the real cost. A controller who does not trust the screen starts phoning drivers to confirm, and at that point the dispatch system has become a very expensive way of displaying phone numbers." },
+
+      { t: "h2", v: "What this does not fix" },
+      { t: "p", v: "Being straight about the limits. None of this makes GPS accurate indoors, because it is not. Urban canyons still produce readings that put a car through a building. A driver who leaves their phone in the cab and walks off still shows as present." },
+      { t: "p", v: "What changes is that the system stops presenting all of these with the same confidence. It can say I do not know, and a controller who is told I do not know makes a better decision than one who is told something wrong in a convincing tone." },
+      { t: "p", v: "That is most of what we learned. Not a clever algorithm. Just a system that admits the difference between knowing and having known." },
+    ],
+  },
+  {
     slug: "guard-patrol-app-offline-mode",
     title: "Why your guard patrol app stops working in a basement, and what to do about it",
     metaTitle: "Guard Patrol App Offline Mode: Why Patrols Fail Without Signal",
