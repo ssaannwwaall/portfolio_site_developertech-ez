@@ -19,6 +19,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/taxi-dispatch-software",             0.8, "monthly"],
     ["/guard-monitoring-software",          0.8, "monthly"],
     ["/blog",                               0.8, "weekly"],
+    ["/hire-flutter-developers",             0.9, "monthly"],
+    ["/offshore-software-development-company", 0.9, "monthly"],
+    ["/software-development-company-new-york", 0.8, "monthly"],
+    ["/software-development-company-austin",  0.8, "monthly"],
+    ["/software-development-company-chicago", 0.8, "monthly"],
+    ["/software-development-company-miami",   0.8, "monthly"],
   ]
   const staticPages = pages.map(([path, priority, changeFrequency]) => ({
     url: `${BASE}${path}`,

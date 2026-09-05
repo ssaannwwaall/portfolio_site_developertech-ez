@@ -30,13 +30,13 @@ export function Footer() {
           </div>
           <div>
             <div className="foot-h">Solutions</div>
-            {[["Taxi Dispatch Software", "/taxi-dispatch-software"], ["Guard Monitoring Software", "/guard-monitoring-software"], ["Mobile Apps", "/services"], ["Web Platforms", "/services"], ["AI Integration", "/services"]].map(([l, h]) => (
+            {[["Hire Flutter Developers", "/hire-flutter-developers"], ["Offshore Development", "/offshore-software-development-company"], ["Taxi Dispatch Software", "/taxi-dispatch-software"], ["Guard Monitoring Software", "/guard-monitoring-software"], ["Mobile Apps", "/services"], ["AI Integration", "/services"]].map(([l, h]) => (
               <Link key={l} href={h} className="foot-link">{l}</Link>
             ))}
           </div>
           <div>
             <div className="foot-h">Regions</div>
-            {[["United Kingdom", "/flutter-app-development-uk"], ["United States", "/software-development-company-usa"], ["Dubai and UAE", "/mobile-app-development-dubai"], ["Malaysia", "/software-development-malaysia"], ["Europe", "/software-development-europe"]].map(([l, h]) => (
+            {[["United Kingdom", "/flutter-app-development-uk"], ["United States", "/software-development-company-usa"], ["New York", "/software-development-company-new-york"], ["Austin", "/software-development-company-austin"], ["Chicago", "/software-development-company-chicago"], ["Miami", "/software-development-company-miami"], ["Dubai and UAE", "/mobile-app-development-dubai"], ["Malaysia", "/software-development-malaysia"], ["Europe", "/software-development-europe"]].map(([l, h]) => (
               <Link key={l} href={h} className="foot-link">{l}</Link>
             ))}
           </div>
