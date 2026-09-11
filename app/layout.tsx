@@ -52,13 +52,11 @@ export const metadata: Metadata = {
     title: "DevelopersTech | Flutter, AI and Enterprise Software Development Company",
     description:
       "An engineering studio shipping Flutter apps, AI platforms and enterprise systems for clients worldwide.",
-    images: [{ url: "/images/company-logo.png", width: 1200, height: 630, alt: "DevelopersTech software development company" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "DevelopersTech | Flutter, AI and Enterprise Software Development",
     description: "An engineering studio shipping Flutter apps, AI platforms and enterprise systems worldwide.",
-    images: ["/images/company-logo.png"],
   },
   robots: {
     index: true,
