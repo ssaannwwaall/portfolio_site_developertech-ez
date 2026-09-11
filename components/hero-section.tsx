@@ -5,8 +5,8 @@ import Link from "next/link"
 import Image from "next/image"
 
 const WA = "https://wa.me/923074494175?text=Hi%20Sanwal!%20I%27d%20like%20to%20book%20a%20free%20consultation."
-const LINE1 = ["We", "build", "the", "software"]
-const LINE2 = ["businesses", "run", "on."]
+const LINE1 = ["Enterprise", "software", "and", "AI,"]
+const LINE2 = ["built", "for", "production."]
 
 export function HeroSection() {
   const inner = useRef<HTMLDivElement>(null)
@@ -55,7 +55,7 @@ export function HeroSection() {
                   transition: "transform .9s cubic-bezier(.16,1,.3,1)",
                 }}>
                   <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#2FA560" }} />
-                  <span style={{ fontSize: 12.5, color: "var(--accent)", fontWeight: 500 }}>Taking on new work for Q3</span>
+                  <span style={{ fontSize: 12.5, color: "var(--accent)", fontWeight: 500 }}>Available for new projects</span>
                 </div>
               </div>
 
@@ -70,8 +70,9 @@ export function HeroSection() {
                 opacity: go ? 1 : 0, transform: go ? "translateY(0)" : "translateY(20px)",
                 transition: "opacity .9s cubic-bezier(.16,1,.3,1) .62s, transform .9s cubic-bezier(.16,1,.3,1) .62s",
               }}>
-                We are an engineering studio shipping Flutter apps, AI platforms and
-                enterprise systems for clients across the UK, UAE, Europe and the US.
+                Our dispatch and monitoring platforms run live operations for clients in
+                the UK and UAE right now. Flutter, AI integration and enterprise systems,
+                built by the engineers who still maintain them.
               </p>
 
               <div style={{
@@ -86,6 +87,21 @@ export function HeroSection() {
                   See our work <span className="arrow">→</span>
                 </Link>
               </div>
+
+              <div className="hero-caps" style={{
+                opacity: go ? 1 : 0,
+                transform: go ? "translateY(0)" : "translateY(16px)",
+                transition: "opacity .9s cubic-bezier(.16,1,.3,1) .88s, transform .9s cubic-bezier(.16,1,.3,1) .88s",
+              }}>
+                {[
+                  ["Flutter and mobile", "/hire-flutter-developers"],
+                  ["AI integration", "/services"],
+                  ["Dispatch systems", "/taxi-dispatch-software"],
+                  ["Enterprise SaaS", "/services"],
+                ].map(([label, href]) => (
+                  <Link key={label} href={href} className="hero-cap">{label}</Link>
+                ))}
+              </div>
             </div>
 
             <div className="hero-visual" style={{
@@ -97,17 +113,23 @@ export function HeroSection() {
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg,rgba(14,27,38,.05),rgba(14,27,38,.42))" }} />
               </div>
 
-              <div className="float-1 hero-card" style={{ left: -32, top: 70 }}>
-                <div style={{ fontSize: 30, fontWeight: 500, color: "var(--ink)", letterSpacing: "-.03em", lineHeight: 1 }}>5<span style={{ color: "var(--accent)" }}>+</span></div>
-                <div style={{ fontSize: 12, color: "var(--body)", marginTop: 5 }}>years engineering</div>
+              <div className="float-1 hero-card" style={{ left: -32, top: 62 }}>
+                <div style={{ fontSize: 29, fontWeight: 500, color: "var(--ink)", letterSpacing: "-.03em", lineHeight: 1 }}>1,000<span style={{ color: "var(--accent)" }}>+</span></div>
+                <div style={{ fontSize: 12, color: "var(--body)", marginTop: 5 }}>installs on Google Play</div>
               </div>
-              <div className="float-2 hero-card" style={{ right: -26, bottom: 96 }}>
-                <div style={{ fontSize: 30, fontWeight: 500, color: "var(--ink)", letterSpacing: "-.03em", lineHeight: 1 }}>100<span style={{ color: "var(--accent)" }}>+</span></div>
-                <div style={{ fontSize: 12, color: "var(--body)", marginTop: 5 }}>products shipped</div>
+              <div className="float-2 hero-card" style={{ right: -26, bottom: 104 }}>
+                <div style={{ display: "flex", alignItems: "baseline", gap: 7 }}>
+                  <span style={{ fontSize: 29, fontWeight: 500, color: "var(--ink)", letterSpacing: "-.03em", lineHeight: 1 }}>5.0</span>
+                  <span style={{ color: "var(--gold)", fontSize: 13, letterSpacing: "1px" }}>★★★★★</span>
+                </div>
+                <div style={{ fontSize: 12, color: "var(--body)", marginTop: 5 }}>from 59 client reviews</div>
               </div>
-              <div className="float-1 hero-card" style={{ left: 26, bottom: -20, background: "var(--ink)", animationDelay: ".6s" }}>
-                <div style={{ fontSize: 11, color: "var(--accent-lt)", letterSpacing: ".1em", textTransform: "uppercase", marginBottom: 4 }}>Currently</div>
-                <div style={{ fontSize: 13.5, color: "var(--paper)" }}>Building for UK and UAE</div>
+              <div className="float-1 hero-card" style={{ left: 22, bottom: -20, background: "var(--ink)", animationDelay: ".6s" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 7, marginBottom: 5 }}>
+                  <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#2FA560", display: "inline-block" }} />
+                  <span style={{ fontSize: 11, color: "var(--accent-lt)", letterSpacing: ".1em", textTransform: "uppercase" }}>In production</span>
+                </div>
+                <div style={{ fontSize: 13.5, color: "var(--paper)" }}>UK dispatch, running today</div>
               </div>
             </div>
           </div>
@@ -120,6 +142,18 @@ export function HeroSection() {
         .hero-card {
           position: absolute; background: var(--paper); padding: 18px 22px;
           box-shadow: 0 20px 60px rgba(14,27,38,.14); border: 1px solid var(--line);
+        }
+        .hero-caps {
+          display: flex; flex-wrap: wrap; gap: 10px;
+          margin-top: 34px; padding-top: 26px; border-top: 1px solid var(--line);
+        }
+        .hero-caps :global(.hero-cap) {
+          font-size: 13px; color: var(--body); text-decoration: none;
+          padding: 7px 15px; border: 1px solid var(--line); border-radius: 100px;
+          transition: color .25s, border-color .25s, background .25s;
+        }
+        .hero-caps :global(.hero-cap:hover) {
+          color: var(--ink); border-color: var(--ink); background: rgba(14,27,38,.03);
         }
         @media (max-width: 980px) {
           .hero-grid { grid-template-columns: 1fr; gap: 48px; }
