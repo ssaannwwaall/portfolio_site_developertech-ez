@@ -40,7 +40,10 @@ export const metadata: Metadata = {
   authors: [{ name: "Sanwal Khan", url: "https://www.linkedin.com/in/sanwal-khan-3b4019213" }],
   creator: "DevelopersTech",
   publisher: "DevelopersTech",
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    types: { "application/rss+xml": [{ url: "/feed.xml", title: "DevelopersTech" }] },
+  },
   openGraph: {
     type: "website",
     locale: "en_GB",

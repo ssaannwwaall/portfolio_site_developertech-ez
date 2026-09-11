@@ -26,6 +26,9 @@ export default function BlogIndex() {
               Things we learned maintaining products in production, written for the people
               who have to make these decisions.
             </p>
+            <a href="/feed.xml" style={{ display: "inline-block", marginTop: 18, fontSize: 13.5, color: "var(--accent)", textDecoration: "none", borderBottom: "1px solid var(--line)", paddingBottom: 3 }}>
+              Subscribe by RSS
+            </a>
           </Rise>
         </div>
       </section>
